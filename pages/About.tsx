@@ -4,17 +4,17 @@ import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
   return (
-    <div className="pt-32 pb-24 bg-white">
+    <div className="pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-24 bg-white">
       {/* Story Section */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center mb-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-24 items-center mb-16 sm:mb-24 md:mb-32">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             className="space-y-8"
           >
-            <span className="text-[#C6A75E] uppercase tracking-widest text-xs font-bold">The Heritage</span>
-            <h1 className="text-5xl md:text-7xl font-serif leading-tight">Crafting Beauty <br /> Since 2018</h1>
+            <span className="text-[#E7646A] uppercase tracking-widest text-xs font-bold">The Heritage</span>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif leading-tight">Crafting Beauty <br /> Since 2018</h1>
             <p className="text-gray-500 leading-relaxed text-lg">
               Nilli's Nail & Beauty Lounge was born from a simple observation: that the world of beauty had become too fast, too loud, and too impersonal. We envisioned a sanctuary that returned to the roots of luxury—personalized care, unhurried time, and exceptional artistry.
             </p>
@@ -48,19 +48,19 @@ const About: React.FC = () => {
         </div>
 
         {/* Values Section */}
-        <div className="py-24 border-t border-gray-100">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-serif mb-4">Our Core Values</h2>
-            <div className="w-20 h-[1px] bg-[#C6A75E] mx-auto"></div>
+        <div className="py-16 sm:py-24 border-t border-gray-100">
+          <div className="text-center mb-12 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl font-serif mb-4">Our Core Values</h2>
+            <div className="w-20 h-[1px] bg-[#E7646A] mx-auto"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 sm:gap-16">
             {[
               { title: 'Conscious Luxury', desc: 'We only partner with brands that are cruelty-free and environmentally responsible.' },
               { title: 'Unrivaled Artistry', desc: 'Our technicians undergo continuous education to master the latest global techniques.' },
               { title: 'Personalized Care', desc: 'No two individuals are the same. Your treatment is curated specifically for your chemistry.' },
             ].map((value, i) => (
               <div key={i} className="text-center space-y-6">
-                <div className="w-16 h-16 bg-[#FAF9F6] border border-[#EAD8C0] rounded-full flex items-center justify-center mx-auto text-[#C6A75E] font-serif text-2xl italic">
+                <div className="w-16 h-16 bg-[#FAF9F6] border border-[#EAD8C0] rounded-full flex items-center justify-center mx-auto text-[#E7646A] font-serif text-2xl italic">
                   {i + 1}
                 </div>
                 <h3 className="text-xl font-serif">{value.title}</h3>

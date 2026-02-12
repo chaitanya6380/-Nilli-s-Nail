@@ -2,11 +2,12 @@
 import { Service, MembershipTier, Testimonial, GalleryItem } from './types';
 
 export const COLORS = {
-  blush: '#F6D6D8',
+  brand: '#E7646A',
+  blush: '#E7646A',
   beige: '#EAD8C0',
   white: '#FAF9F6',
-  rose: '#D8A7B1',
-  gold: '#C6A75E',
+  rose: '#E7646A',
+  gold: '#E7646A',
 };
 
 export const SERVICES: Service[] = [

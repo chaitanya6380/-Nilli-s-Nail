@@ -14,26 +14,26 @@ const Services: React.FC = () => {
   const categories: (typeof activeCategory)[] = ['All', 'Hair', 'Skin', 'Nails', 'Waxing'];
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-[#FAF9F6]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 space-y-6">
+    <div className="pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-24 min-h-screen bg-[#FAF9F6]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-serif"
+            className="text-4xl sm:text-5xl md:text-7xl font-serif"
           >
             Service Menu
           </motion.h1>
           <p className="text-gray-500 tracking-widest uppercase text-xs">Exquisite care for your hair, skin, and nails</p>
           
-          <div className="flex flex-wrap justify-center gap-4 pt-8">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 pt-6 sm:pt-8">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-8 py-2 rounded-full text-xs uppercase tracking-widest transition-all ${
+                className={`px-4 sm:px-8 py-2 rounded-full text-xs uppercase tracking-widest transition-all ${
                   activeCategory === cat 
-                    ? 'bg-[#C6A75E] text-white shadow-lg' 
+                    ? 'bg-[#E7646A] text-white shadow-lg' 
                     : 'bg-white text-gray-500 border border-gray-100 hover:border-[#EAD8C0]'
                 }`}
               >
@@ -43,7 +43,7 @@ const Services: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
           {filteredServices.map((service, idx) => (
             <motion.div 
               layout
@@ -51,9 +51,9 @@ const Services: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: idx * 0.05 }}
-              className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group flex flex-col md:flex-row"
+              className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group flex flex-col md:flex-row"
             >
-              <div className="md:w-2/5 relative h-64 md:h-auto overflow-hidden">
+              <div className="md:w-2/5 relative h-56 sm:h-64 md:h-auto overflow-hidden">
                 <img 
                   src={service.image} 
                   alt={service.name} 
@@ -63,11 +63,11 @@ const Services: React.FC = () => {
                   {service.category}
                 </div>
               </div>
-              <div className="p-8 md:w-3/5 flex flex-col justify-between">
+              <div className="p-6 sm:p-8 md:w-3/5 flex flex-col justify-between">
                 <div>
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-serif text-[#333] group-hover:text-[#C6A75E] transition-colors">{service.name}</h3>
-                    <span className="text-lg font-medium text-[#C6A75E]">{service.price}</span>
+                    <h3 className="text-xl sm:text-2xl font-serif text-[#333] group-hover:text-[#E7646A] transition-colors">{service.name}</h3>
+                    <span className="text-lg font-medium text-[#E7646A]">{service.price}</span>
                   </div>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">
                     {service.description}

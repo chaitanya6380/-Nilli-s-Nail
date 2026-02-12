@@ -12,18 +12,18 @@ const Gallery: React.FC = () => {
     : GALLERY.filter(item => item.category === filter);
 
   return (
-    <div className="pt-32 pb-24 bg-[#FAF9F6] min-h-screen">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 space-y-6">
-          <h1 className="text-5xl md:text-7xl font-serif">Portfolio of Grace</h1>
-          <div className="flex justify-center space-x-8 pt-8">
+    <div className="pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-24 bg-[#FAF9F6] min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif">Portfolio of Grace</h1>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8 pt-6 sm:pt-8">
             {['All', 'Hair', 'Skin', 'Nails'].map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f as any)}
                 className={`text-xs uppercase tracking-[0.3em] pb-2 transition-all ${
                   filter === f 
-                    ? 'text-[#C6A75E] border-b-2 border-[#C6A75E]' 
+                    ? 'text-[#E7646A] border-b-2 border-[#E7646A]' 
                     : 'text-gray-400 border-b-2 border-transparent hover:text-gray-600'
                 }`}
               >
@@ -33,7 +33,7 @@ const Gallery: React.FC = () => {
           </div>
         </div>
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div layout className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           <AnimatePresence mode='popLayout'>
             {filteredGallery.map((item) => (
               <motion.div
@@ -56,13 +56,13 @@ const Gallery: React.FC = () => {
           </AnimatePresence>
         </motion.div>
 
-        <div className="mt-24 text-center">
+        <div className="mt-16 sm:mt-24 text-center px-4">
           <p className="text-gray-500 italic mb-8 font-serif text-lg">"Every finish tells a story of transformation."</p>
           <a 
             href="https://instagram.com" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-3 text-sm uppercase tracking-widest text-[#C6A75E] hover:text-[#b59855] transition-colors"
+            className="inline-flex items-center space-x-3 text-sm uppercase tracking-widest text-[#E7646A] hover:text-[#d4545a] transition-colors"
           >
             <span>Follow our journey on Instagram</span>
           </a>
