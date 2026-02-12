@@ -1,0 +1,8 @@
+
+{
+  "name": "Nilli's Nail & Beauty Lounge",
+  "description": "A high-end luxury beauty salon website featuring elegant design, professional services, and an AI-powered beauty consultant.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
