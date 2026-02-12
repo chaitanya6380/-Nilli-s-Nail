@@ -16,7 +16,12 @@ const AIAdvisor: React.FC = () => {
     
     setLoading(true);
     const advice = await getBeautyAdvice(input);
-    setResult(advice);
+    setResult(advice ?? { 
+      opening: "Our AI advisor is currently unavailable. Please contact us directly for personalized beauty recommendations!", 
+      recommendations: [], 
+      homeCareTip: "Visit our Services page to explore our treatments.", 
+      closing: "We look forward to welcoming you." 
+    });
     setLoading(false);
   };
 
@@ -61,7 +66,7 @@ const AIAdvisor: React.FC = () => {
                   <p className="text-gray-600 italic leading-relaxed font-serif">"{result.opening}"</p>
                   <div className="space-y-3">
                     <h4 className="text-xs uppercase tracking-widest text-[#C6A75E] font-semibold">Recommended Services</h4>
-                    {result.recommendations.map((rec: any, i: number) => (
+                    {result.recommendations?.map((rec: any, i: number) => (
                       <div key={i} className="bg-[#FAF9F6] p-3 rounded-xl border border-gray-100">
                         <p className="font-serif text-[#333]">{rec.service}</p>
                         <p className="text-xs text-gray-500 mt-1">{rec.benefit}</p>

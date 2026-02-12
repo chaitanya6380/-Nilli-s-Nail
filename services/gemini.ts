@@ -1,10 +1,13 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
-
 export const getBeautyAdvice = async (concerns: string) => {
+  const apiKey = (process.env.GEMINI_API_KEY || process.env.API_KEY || '').trim();
+  if (!apiKey) {
+    return null;
+  }
   try {
+    const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: `Provide a luxurious, personalized beauty recommendation for a client with these concerns: "${concerns}". 
