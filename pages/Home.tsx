@@ -1,9 +1,60 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, PlayCircle, Sparkles, Palette, Leaf, Flower2, Clock, Quote } from 'lucide-react';
+import { ArrowRight, Star, PlayCircle, Sparkles, Palette, Leaf, Flower2, Quote } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { SERVICES, TESTIMONIALS } from '../constants';
+import { TESTIMONIALS } from '../constants';
+
+const SPECIALITY_GROUPS = [
+  {
+    id: 'skin',
+    title: 'Skin Rituals',
+    anchor: '/services#cleanup',
+    from: '₹600',
+    summary: 'Clean ups, detan, bleach, facials & premium treatments.',
+    items: ['Clean Up', 'Detan & Bleach', 'Facials', 'Premium Facials'],
+  },
+  {
+    id: 'body',
+    title: 'Glow & Body Care',
+    anchor: '/services#waxing',
+    from: '₹100',
+    summary: 'Smooth, luminous skin from top to toe.',
+    items: ['Threading', 'Waxing (Normal & Premium)', 'Body Polishing'],
+  },
+  {
+    id: 'hands-feet',
+    title: 'Hands & Feet Rituals',
+    anchor: '/services#pedicure-manicure',
+    from: '₹800',
+    summary: 'Signature pedicures & manicures for perfect finishes.',
+    items: ['Normal & Premium', "Nili's Signature", 'Rose, Bubble Gum, Ice Cream'],
+  },
+  {
+    id: 'hair',
+    title: 'Hair Lounge (Women)',
+    anchor: '/services#hair-cut-women',
+    from: '₹400',
+    summary: 'From classic cuts to advanced treatments.',
+    items: ['Hair Cuts & Styling', 'Colour & Highlights', 'Keratin, Smoothening, Botox'],
+  },
+  {
+    id: 'bridal',
+    title: 'Bridal & Occasion',
+    anchor: '/services#bridal',
+    from: '₹2,000',
+    summary: 'Full pre-bridal rituals and wedding day glam.',
+    items: ['Pre-Bridal Package', 'Wedding Day Package', 'Party & Bridal Makeup'],
+  },
+  {
+    id: 'men',
+    title: "Nili's Studio for Men",
+    anchor: '/services#men',
+    from: '₹100',
+    summary: 'Dedicated grooming studio for him.',
+    items: ['Hair Cuts & Styling', 'Colour & Spa', 'Beard Styling & Shaves'],
+  },
+];
 
 const Home: React.FC = () => {
   return (
@@ -248,89 +299,88 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Preview - Enhanced */}
-      <section className="relative py-16 sm:py-24 lg:py-36 overflow-hidden">
-        {/* Background */}
+      {/* Our Specialties – Curated Treatments – grouped preview */}
+      <section className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[#FAF9F6]" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-b from-[#E7646A]/20 to-transparent rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-b from-[#E7646A]/15 to-transparent rounded-full blur-2xl pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#EAD8C0]/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-20"
+            className="text-center mb-12 sm:mb-16"
           >
-            <span className="inline-block text-[#E7646A] uppercase tracking-[0.35em] text-[10px] font-bold mb-4">
+            <span className="inline-flex items-center gap-2 text-[#E7646A] uppercase tracking-[0.35em] text-[10px] font-bold mb-4">
               Our Specialties
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-[3.25rem] font-serif text-[#333] mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#333] mb-3">
               Curated Treatments
             </h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-lg">
-              Indulge in our signature services, crafted for lasting radiance.
+            <p className="text-gray-500 max-w-2xl mx-auto text-base sm:text-lg">
+              A quick glance at our most-loved categories — tap any group to see the full price list.
             </p>
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#E7646A] to-transparent mx-auto mt-8" />
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#E7646A] to-transparent mx-auto mt-6" />
           </motion.div>
 
-          {/* Service cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
-            {SERVICES.map((service, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+            {SPECIALITY_GROUPS.map((group, idx) => (
               <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 30 }}
+                key={group.id}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1, duration: 0.6 }}
+                transition={{ delay: idx * 0.08, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <Link to="/services" className="group block">
-                  <div className="relative overflow-hidden rounded-2xl aspect-[3/4] mb-6 shadow-lg shadow-gray-200/50 transition-all duration-500 group-hover:shadow-xl group-hover:shadow-[#E7646A]/20 group-hover:-translate-y-2">
-                    <img
-                      src={service.image}
-                      alt={service.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-70" />
-                    {/* Category badge */}
-                    <span className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm text-[10px] font-semibold uppercase tracking-widest text-[#333]">
-                      {service.category}
-                    </span>
-                    {/* Bottom gradient bar with name & duration */}
-                    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 pt-16 sm:pt-20 bg-gradient-to-t from-black/70 to-transparent">
-                      <span className="block text-white font-serif text-base sm:text-lg tracking-wide">{service.name}</span>
-                      <div className="flex items-center gap-2 text-white/80 text-xs mt-1">
-                        <Clock className="w-3.5 h-3.5" />
-                        <span>{service.duration}</span>
-                      </div>
+                <Link
+                  to={group.anchor}
+                  className="group block bg-white rounded-2xl p-6 sm:p-7 border border-[#EAD8C0]/70 hover:border-[#E7646A]/50 shadow-sm hover:shadow-xl hover:shadow-[#E7646A]/10 transition-all duration-300 h-full flex flex-col"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="font-serif text-lg sm:text-xl text-[#333] mb-1 group-hover:text-[#E7646A] transition-colors">
+                        {group.title}
+                      </h3>
+                      <p className="text-xs text-gray-500">
+                        From {group.from}
+                      </p>
+                    </div>
+                    <div className="w-9 h-9 rounded-xl bg-[#E7646A]/10 flex items-center justify-center group-hover:bg-[#E7646A]/20 transition-colors">
+                      <Sparkles className="w-5 h-5 text-[#E7646A]" />
                     </div>
                   </div>
-                  <p className="text-sm text-gray-500 mb-3 line-clamp-2 group-hover:text-gray-700 transition-colors">
-                    {service.description}
+                  <p className="text-sm text-gray-500 mb-4">
+                    {group.summary}
                   </p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#E7646A] tracking-wide group-hover:gap-3 transition-all">
-                    {service.price}
-                    <ArrowRight className="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 transition-opacity" />
+                  <ul className="space-y-1.5 text-xs sm:text-sm text-[#333] mb-4">
+                    {group.items.map((item) => (
+                      <li key={item} className="flex items-center gap-2">
+                        <span className="w-1 h-1 rounded-full bg-[#E7646A]" />
+                        <span className="truncate">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="mt-auto inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#E7646A] group-hover:gap-3 transition-all">
+                    View detailed prices
+                    <ArrowRight className="w-4 h-4" />
                   </span>
                 </Link>
               </motion.div>
             ))}
           </div>
 
-          {/* CTA */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mt-20 text-center"
+            className="mt-12 sm:mt-16 text-center"
           >
             <Link
               to="/services"
-              className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-[#333] text-white text-sm font-medium uppercase tracking-[0.2em] hover:bg-[#222] transition-all duration-300 shadow-lg hover:shadow-xl group"
+              className="inline-flex items-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#333] text-white text-sm font-medium uppercase tracking-[0.2em] hover:bg-[#222] transition-all duration-300 shadow-lg hover:shadow-xl group"
             >
-              View Full Menu
+              View Full Price List
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>

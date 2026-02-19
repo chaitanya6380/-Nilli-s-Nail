@@ -33,3 +33,17 @@ export interface GalleryItem {
   image: string;
   title: string;
 }
+
+export interface TreatmentItem {
+  name: string;
+  price: string;
+  pricePremium?: string;
+}
+
+export interface TreatmentCategory {
+  id: string;
+  name: string;
+  slug: string;
+  items: TreatmentItem[];
+  fromPrice: string;
+}
