@@ -14,11 +14,6 @@ const Services: React.FC = () => {
     }
   }, []);
 
-  const hasPremiumTier = (cat: (typeof TREATMENT_CATEGORIES)[0]) =>
-    cat.items.some((i) => i.pricePremium);
-  const isPedicureManicure = (cat: (typeof TREATMENT_CATEGORIES)[0]) =>
-    cat.slug === 'pedicure-manicure';
-
   return (
     <div className="pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-24 min-h-screen bg-[#FAF9F6] relative overflow-hidden">
       {/* Decorative corner elements - brochure style */}
@@ -55,9 +50,6 @@ const Services: React.FC = () => {
 
         <div className="space-y-8 sm:space-y-10">
           {TREATMENT_CATEGORIES.map((cat, catIdx) => {
-            const showNormalPremium = hasPremiumTier(cat) && !isPedicureManicure(cat);
-            const showPedicureManicure = isPedicureManicure(cat);
-
             return (
               <motion.section
                 key={cat.id}
@@ -74,47 +66,24 @@ const Services: React.FC = () => {
                   </h2>
                 </div>
 
-                {/* Content in light pink box */}
+                {/* Content in light pink box – names only, prices removed */}
                 <div className="bg-[#E7646A]/[0.12] rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-[#E7646A]/20">
-                  {showNormalPremium && (
-                    <div className="grid grid-cols-3 gap-2 sm:gap-4 pb-3 mb-3 border-b border-[#E7646A]/20 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#333]">
-                      <span>Service</span>
-                      <span className="text-center">Normal</span>
-                      <span className="text-center">Premium</span>
-                    </div>
-                  )}
-                  {showPedicureManicure && (
-                    <div className="grid grid-cols-3 gap-2 sm:gap-4 pb-3 mb-3 border-b border-[#E7646A]/20 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#333]">
-                      <span>Service</span>
-                      <span className="text-center">Pedicure</span>
-                      <span className="text-center">Manicure</span>
-                    </div>
-                  )}
                   <ul className="space-y-0">
                     {cat.items.map((item, idx) => (
                       <li
                         key={idx}
-                        className={`grid gap-2 sm:gap-4 py-2.5 sm:py-3 text-sm sm:text-base ${
-                          showNormalPremium || showPedicureManicure ? 'grid-cols-3' : 'grid-cols-[1fr,auto]'
-                        } ${idx < cat.items.length - 1 ? 'border-b border-[#E7646A]/10' : ''}`}
+                        className={`flex items-center py-2.5 sm:py-3 text-sm sm:text-base ${
+                          idx < cat.items.length - 1 ? 'border-b border-[#E7646A]/10' : ''
+                        }`}
                       >
-                        <span className="text-[#333] font-medium min-w-0">
+                        <span className="text-[#333] font-medium">
                           {item.name}
+                          {item.pricePremium && (
+                            <span className="text-xs text-gray-500 ml-2">
+                              (Normal & Premium options)
+                            </span>
+                          )}
                         </span>
-                        {showNormalPremium || showPedicureManicure ? (
-                          <>
-                            <span className="text-[#E7646A] font-semibold tabular-nums text-center">
-                              {item.price}
-                            </span>
-                            <span className="text-[#E7646A] font-semibold tabular-nums text-center">
-                              {item.pricePremium || '—'}
-                            </span>
-                          </>
-                        ) : (
-                          <span className="text-[#E7646A] font-semibold tabular-nums text-right">
-                            {item.price}
-                          </span>
-                        )}
                       </li>
                     ))}
                   </ul>
