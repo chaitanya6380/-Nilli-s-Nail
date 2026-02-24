@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import AIAdvisor from '@/components/AIAdvisor';
+import AppShell from '@/components/AppShell';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,12 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans">
-        <div className="min-h-screen flex flex-col selection:bg-[#E7646A] selection:text-[#333]">
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-          <AIAdvisor />
-        </div>
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );
