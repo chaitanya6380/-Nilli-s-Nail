@@ -89,6 +89,14 @@ export const TESTIMONIALS: Testimonial[] = [
     text: "True luxury is in the details. Nilli's Nail & Beauty Lounge gets everything right, from the soft linen to the expert colorists.",
     rating: 5,
     image: 'https://picsum.photos/seed/p2/200/200'
+  },
+  {
+    id: 't3',
+    name: 'Olivia Martinez',
+    role: 'Bridal Client',
+    text: "From my pre-bridal rituals to the final look, the team made me feel completely taken care of. I’ve never felt more confident on a big day.",
+    rating: 5,
+    image: 'https://picsum.photos/seed/p3/200/200'
   }
 ];
 

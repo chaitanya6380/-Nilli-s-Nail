@@ -370,97 +370,151 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="relative py-16 sm:py-24 lg:py-36 overflow-hidden">
+      {/* Client Stories Section (Testimonials) */}
+      <section className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FAF9F6] to-white" />
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#E7646A]/20 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
-        <div className="absolute top-1/2 right-0 w-80 h-80 bg-[#EAD8C0]/25 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" />
+        <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#E7646A]/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 -left-32 w-96 h-96 bg-[#EAD8C0]/25 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-20"
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-10 sm:mb-12"
           >
-            <span className="inline-block text-[#E7646A] uppercase tracking-[0.35em] text-[10px] font-bold mb-4">
-              Client Love
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-[3.25rem] font-serif text-[#333]">
-              What They Say <span className="italic text-[#E7646A] font-light">About Us</span>
-            </h2>
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#E7646A] to-transparent mx-auto mt-6" />
+            <div>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E7646A]/15 text-[#E7646A] text-[11px] font-semibold tracking-[0.18em] uppercase mb-4">
+                <Sparkles className="w-4 h-4" />
+                Client Stories
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#333] mb-3">
+                Real Results Shared by Our Happy Clients
+              </h2>
+              <p className="text-sm sm:text-base text-gray-600 max-w-xl">
+                We&apos;re proud to be part of our clients&apos; beauty journeys. From visible skin
+                improvements to renewed confidence, their experiences reflect the care and expertise
+                we bring to every visit.
+              </p>
+            </div>
+
+            <a
+              href="https://www.google.com/search?sca_esv=c792f36581e0cd30&rlz=1C5BAPC_enIN1192IN1192&sxsrf=ANbL-n49rLWyAOWU2Laen5yqFBDMOPKa_A:1771065622975&kgmid=/g/11jt0xyscn&q=Nili%27s+Nail+and+Beauty+Lounge&shem=sumc,shrtsdl&shndl=30&source=sh/x/loc/uni/m1/1&kgs=c10e4ea914941b69&utm_source=sumc,shrtsdl,sh/x/loc/uni/m1/1"
+              target="_blank"
+              rel="noreferrer"
+              className="self-start sm:self-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#E7646A] text-white text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase hover:bg-[#d4565c] transition-colors shadow-md shadow-[#E7646A]/30"
+            >
+              View All
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-stretch">
-            <div className="lg:col-span-7 space-y-8">
-              {TESTIMONIALS.map((t, idx) => (
-                <motion.div
-                  key={t.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.15, duration: 0.6 }}
-                  className={`relative ${idx === 1 ? 'lg:ml-12' : ''}`}
+          {/* Cards Row */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
+            {/* Stats Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-1"
+            >
+              <div className="h-full bg-[#E7646A] rounded-2xl sm:rounded-3xl px-6 py-7 sm:px-7 sm:py-8 text-white shadow-xl shadow-[#E7646A]/40">
+                <p className="text-xs uppercase tracking-[0.25em] opacity-90 mb-4">
+                  Active Clients
+                </p>
+                <p className="text-4xl sm:text-5xl font-serif mb-2">4,500+</p>
+                <p className="text-xs text-white/80 mb-6 max-w-[13rem]">
+                  Trusted by clients who return to Nilli&apos;s for every important occasion.
+                </p>
+
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="flex -space-x-2">
+                    {TESTIMONIALS.slice(0, 3).map((t) => (
+                      <img
+                        key={t.id}
+                        src={t.image}
+                        alt={t.name}
+                        className="w-8 h-8 rounded-full border border-white/60 object-cover"
+                      />
+                    ))}
+                  </div>
+                  <span className="text-xs font-medium bg-white/15 px-2.5 py-1 rounded-full">
+                    12K+ visits
+                  </span>
+                </div>
+
+              <div className="space-y-2 text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="opacity-80">Google Rating</span>
+                  <span className="font-semibold">4.8</span>
+                  </div>
+                  <div className="flex gap-1 text-[#FFD88A]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                <p className="text-[11px] text-white/80 mt-3">
+                  Average rating from 1,000+ verified reviews.
+                </p>
+                <a
+                  href="https://www.google.com/search?sca_esv=c792f36581e0cd30&rlz=1C5BAPC_enIN1192IN1192&sxsrf=ANbL-n49rLWyAOWU2Laen5yqFBDMOPKa_A:1771065622975&kgmid=/g/11jt0xyscn&q=Nili%27s+Nail+and+Beauty+Lounge&shem=sumc,shrtsdl&shndl=30&source=sh/x/loc/uni/m1/1&kgs=c10e4ea914941b69&utm_source=sumc,shrtsdl,sh/x/loc/uni/m1/1"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] text-white/90 underline underline-offset-2 mt-1"
                 >
-                  <div className="group relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lg shadow-gray-100 border border-[#EAD8C0]/40 hover:shadow-xl hover:shadow-[#E7646A]/15 hover:border-[#EAD8C0]/60 transition-all duration-500">
-                    <div className="absolute top-8 right-8 text-[#E7646A]">
-                      <Quote className="w-12 h-12" strokeWidth={1} />
-                    </div>
-                    <div className="flex gap-1 mb-6">
-                      {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-[#E7646A] text-[#E7646A]" />
-                      ))}
-                    </div>
-                    <p className="text-lg sm:text-xl lg:text-2xl font-serif text-gray-700 leading-relaxed pr-6 sm:pr-8 mb-6 sm:mb-8">
-                      &ldquo;{t.text}&rdquo;
-                    </p>
-                    <div className="flex items-center gap-5">
-                      <div className="relative">
+                  View more on Google
+                  <ArrowRight className="w-3 h-3" />
+                </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Testimonial Cards */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-3"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 h-full">
+                {TESTIMONIALS.map((t, idx) => (
+                  <div
+                    key={t.id}
+                    className={`relative bg-white rounded-2xl sm:rounded-3xl px-5 py-6 sm:px-6 sm:py-7 text-[#333] border border-[#EAD8C0]/80 shadow-sm flex flex-col ${
+                      idx === 0 ? 'sm:col-span-1 lg:col-span-1' : ''
+                    }`}
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center gap-3">
                         <img
                           src={t.image}
                           alt={t.name}
-                          className="w-14 h-14 rounded-2xl object-cover ring-2 ring-[#EAD8C0]/60"
+                          className="w-9 h-9 rounded-full object-cover border border-[#EAD8C0]"
                         />
-                        <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#E7646A] flex items-center justify-center">
-                          <Star className="w-2.5 h-2.5 fill-white text-white" />
+                        <div>
+                          <p className="text-sm font-medium">{t.name}</p>
+                          <p className="text-[11px] text-slate-300">{t.role}</p>
                         </div>
                       </div>
-                      <div>
-                        <p className="font-serif text-lg font-medium text-[#333]">{t.name}</p>
-                        <p className="text-sm uppercase tracking-widest text-[#E7646A]">{t.role}</p>
-                      </div>
+                      <Quote className="w-6 h-6 text-[#E7646A]" />
                     </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="lg:col-span-5 flex items-center order-first lg:order-none"
-            >
-              <div className="relative w-full">
-                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-gray-200/50 aspect-[4/5] max-h-[400px] sm:max-h-[500px] lg:max-h-[600px]">
-                  <img
-                    src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=1000"
-                    alt="Satisfied Client"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-xl text-[#E7646A] hover:bg-white transition-colors"
-                    >
-                      <PlayCircle className="w-10 h-10" fill="currentColor" />
-                    </motion.button>
+                    <div className="flex gap-1 text-[#FFC85C] mb-3">
+                      {[...Array(t.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                      ))}
+                    </div>
+
+                    <p className="text-sm text-gray-700 leading-relaxed mb-4 flex-1">
+                      &ldquo;{t.text}&rdquo;
+                    </p>
+
+                    <button className="mt-auto inline-flex items-center justify-center self-start px-3 py-1.5 rounded-full bg-[#FAF1F2] text-[11px] font-medium tracking-[0.16em] uppercase text-[#E7646A] hover:bg-[#E7646A]/10 transition-colors">
+                      Read Story
+                    </button>
                   </div>
-                </div>
-                <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-24 h-24 sm:w-32 sm:h-32 border-2 border-[#E7646A]/30 rounded-2xl sm:rounded-3xl -z-10 hidden sm:block" />
+                ))}
               </div>
             </motion.div>
           </div>

@@ -45,4 +45,6 @@ export interface TreatmentCategory {
   slug: string;
   items: TreatmentItem[];
   fromPrice: string;
+  icon?: string;
+  description?: string;
 }

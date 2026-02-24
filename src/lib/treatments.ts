@@ -6,6 +6,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Clean Up',
     slug: 'cleanup',
     fromPrice: '₹600',
+    icon: 'sparkles',
+    description: 'Deep cleansing treatments for radiant, refreshed skin',
     items: [
       { name: 'Fruit Cleanup', price: '₹600' },
       { name: 'Detan Cleanup', price: '₹1000' },
@@ -19,6 +21,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Detan',
     slug: 'detan',
     fromPrice: '₹300',
+    icon: 'sun',
+    description: 'Remove tan and restore your natural glow',
     items: [
       { name: 'Face', price: '₹500', pricePremium: '₹800' },
       { name: 'Neck', price: '₹500', pricePremium: '₹700' },
@@ -35,6 +39,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Bleach',
     slug: 'bleach',
     fromPrice: '₹300',
+    icon: 'droplets',
+    description: 'Brighten and even out your skin tone',
     items: [
       { name: 'Face', price: '₹500' },
       { name: 'Neck', price: '₹300 / ₹400' },
@@ -52,6 +58,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Facials',
     slug: 'facials',
     fromPrice: '₹1200',
+    icon: 'flower',
+    description: 'Luxurious facials for every skin type',
     items: [
       { name: 'Fruit Facial', price: '₹1200' },
       { name: 'Wine Facial', price: '₹1500' },
@@ -68,6 +76,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Premium Treatment',
     slug: 'premium-treatment',
     fromPrice: '₹2800',
+    icon: 'crown',
+    description: 'Advanced skincare for visible, lasting results',
     items: [
       { name: 'Insta-Fair Facial', price: '₹2800' },
       { name: 'Anti-Acne Facial', price: '₹2800' },
@@ -83,6 +93,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Threading',
     slug: 'threading',
     fromPrice: '₹50',
+    icon: 'scissors',
+    description: 'Precise shaping for perfectly defined features',
     items: [
       { name: 'Eyebrow', price: '₹80' },
       { name: 'Upper Lips', price: '₹50' },
@@ -98,6 +110,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Waxing',
     slug: 'waxing',
     fromPrice: '₹100',
+    icon: 'leaf',
+    description: 'Smooth, silky skin with gentle waxing',
     items: [
       { name: 'Face', price: '₹500', pricePremium: '₹800' },
       { name: 'Upper Lip', price: '₹100', pricePremium: '₹180' },
@@ -121,6 +135,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Polishing',
     slug: 'polishing',
     fromPrice: '₹700',
+    icon: 'gem',
+    description: 'Exfoliate and polish for silky smooth skin',
     items: [
       { name: 'Neck', price: '₹1000' },
       { name: 'Under Arms', price: '₹700' },
@@ -136,6 +152,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Pedicure / Manicure',
     slug: 'pedicure-manicure',
     fromPrice: '₹800',
+    icon: 'hand',
+    description: 'Pamper your hands and feet with our signature treatments',
     items: [
       { name: 'Normal', price: '₹1000', pricePremium: '₹800' },
       { name: "Nili's Signature", price: '₹1500', pricePremium: '₹1200' },
@@ -152,6 +170,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Hair Cut (Women)',
     slug: 'hair-cut-women',
     fromPrice: '₹400',
+    icon: 'scissors',
+    description: 'Expert cuts and styling for every look',
     items: [
       { name: 'Regular Haircut', price: '₹500' },
       { name: 'Professional Hair Cut', price: '₹1000' },
@@ -169,6 +189,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Hair Colour (Women)',
     slug: 'hair-colour-women',
     fromPrice: '₹500',
+    icon: 'palette',
+    description: 'From subtle highlights to bold transformations',
     items: [
       { name: 'Root Touch-up', price: '₹1500' },
       { name: 'Global Colour', price: '₹3500+' },
@@ -182,6 +204,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Hair Treatment (Women)',
     slug: 'hair-treatment-women',
     fromPrice: '₹2500',
+    icon: 'flask',
+    description: 'Professional treatments for healthy, beautiful hair',
     items: [
       { name: 'Dandruff Treatment', price: '₹2500' },
       { name: 'Hairfall Control', price: '₹2500' },
@@ -196,6 +220,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Hair Spa (Women)',
     slug: 'hair-spa-women',
     fromPrice: '₹1500',
+    icon: 'wind',
+    description: 'Rejuvenate and nourish your hair deeply',
     items: [
       { name: 'Hair Spa', price: '₹1500' },
       { name: 'Smoothening Spa', price: '₹2000' },
@@ -207,6 +233,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Head Massage',
     slug: 'head-massage',
     fromPrice: '₹300',
+    icon: 'heart',
+    description: 'Relaxing massage therapy for total wellness',
     items: [
       { name: 'Head Massage', price: '₹500' },
       { name: 'Olive Oil Massage', price: '₹600' },
@@ -221,6 +249,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Bridal Package & Makeup',
     slug: 'bridal',
     fromPrice: '₹2000',
+    icon: 'heart',
+    description: 'Complete bridal beauty for your special day',
     items: [
       { name: 'Bridal Package (A + B)', price: '₹25,000' },
       { name: '(A) Pre-Bridal Package (5 Days Prior)', price: '₹17,000' },
@@ -235,6 +265,8 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Services for Men',
     slug: 'men',
     fromPrice: '₹100',
+    icon: 'user',
+    description: 'Grooming essentials tailored for men',
     items: [
       { name: 'Normal Hair Cut', price: '₹200' },
       { name: 'Professional Hair Cut', price: '₹500' },
