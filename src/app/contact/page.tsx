@@ -1,0 +1,249 @@
+'use client';
+
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { MapPin, Phone, Clock, Send, CheckCircle, Loader2 } from 'lucide-react';
+
+export default function Contact() {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: 'Hair Styling & Color',
+    message: '',
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+
+    if (!form.name || !form.email || !form.message) {
+      setError('Please fill in all required fields');
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setForm({
+          name: '',
+          email: '',
+          phone: '',
+          service: 'Hair Styling & Color',
+          message: '',
+        });
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Failed to send. Please try again later.');
+    }
+
+    setSubmitting(false);
+  };
+
+  return (
+    <div className="pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-24 bg-[#FAF9F6]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-24">
+          <div className="space-y-12">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif mb-6 sm:mb-8">
+                Reach Out
+              </h1>
+              <p className="text-gray-500 text-lg leading-relaxed">
+                We invite you to experience a new standard of beauty. Whether you
+                have questions or wish to book a private consultation, our concierge
+                team is here to assist.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 text-[#E7646A]">
+                  <MapPin className="w-5 h-5" />
+                  <h4 className="font-serif text-xl text-[#333]">Location</h4>
+                </div>
+                <p className="text-sm text-gray-500 leading-relaxed pl-8">
+                  123 Luxury Lane, Beverly Hills
+                  <br />
+                  California, 90210
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 text-[#E7646A]">
+                  <Phone className="w-5 h-5" />
+                  <h4 className="font-serif text-xl text-[#333]">Contact</h4>
+                </div>
+                <p className="text-sm text-gray-500 leading-relaxed pl-8">
+                  +1 (555) 000-LUXE
+                  <br />
+                  concierge@elegance.com
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 text-[#E7646A]">
+                  <Clock className="w-5 h-5" />
+                  <h4 className="font-serif text-xl text-[#333]">Hours</h4>
+                </div>
+                <div className="text-sm text-gray-500 leading-relaxed pl-8 space-y-1">
+                  <p>Mon - Fri: 9:00 AM - 8:00 PM</p>
+                  <p>Sat: 10:00 AM - 6:00 PM</p>
+                  <p>Sun: By Appointment Only</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="h-48 sm:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm grayscale hover:grayscale-0 transition-all duration-700">
+              <img
+                src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=1000"
+                alt="Map View"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100"
+          >
+            {submitted ? (
+              <div className="text-center py-12 space-y-4">
+                <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
+                <h3 className="text-2xl font-serif">Thank You!</h3>
+                <p className="text-gray-500">
+                  We&apos;ve received your inquiry and will get back to you shortly.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="text-[#E7646A] text-sm underline mt-4"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <>
+                <h3 className="text-2xl sm:text-3xl font-serif mb-6 sm:mb-8 text-center">
+                  Inquiry Form
+                </h3>
+
+                {error && (
+                  <div className="bg-red-50 text-red-600 text-sm p-3 rounded-xl mb-4">
+                    {error}
+                  </div>
+                )}
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-[10px] uppercase tracking-widest text-gray-400 ml-1">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        value={form.name}
+                        onChange={(e) =>
+                          setForm({ ...form, name: e.target.value })
+                        }
+                        className="w-full bg-[#FAF9F6] border-none rounded-xl p-4 text-sm focus:ring-1 focus:ring-[#E7646A] focus:outline-none"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] uppercase tracking-widest text-gray-400 ml-1">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        value={form.email}
+                        onChange={(e) =>
+                          setForm({ ...form, email: e.target.value })
+                        }
+                        className="w-full bg-[#FAF9F6] border-none rounded-xl p-4 text-sm focus:ring-1 focus:ring-[#E7646A] focus:outline-none"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-widest text-gray-400 ml-1">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      value={form.phone}
+                      onChange={(e) =>
+                        setForm({ ...form, phone: e.target.value })
+                      }
+                      className="w-full bg-[#FAF9F6] border-none rounded-xl p-4 text-sm focus:ring-1 focus:ring-[#E7646A] focus:outline-none"
+                      placeholder="Optional"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-widest text-gray-400 ml-1">
+                      Service Interest
+                    </label>
+                    <select
+                      value={form.service}
+                      onChange={(e) =>
+                        setForm({ ...form, service: e.target.value })
+                      }
+                      className="w-full bg-[#FAF9F6] border-none rounded-xl p-4 text-sm focus:ring-1 focus:ring-[#E7646A] focus:outline-none appearance-none"
+                    >
+                      <option>Hair Styling &amp; Color</option>
+                      <option>Bespoke Skin Treatment</option>
+                      <option>Luxury Nail Care</option>
+                      <option>Wedding Package</option>
+                      <option>General Inquiry</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-widest text-gray-400 ml-1">
+                      Your Message *
+                    </label>
+                    <textarea
+                      rows={6}
+                      value={form.message}
+                      onChange={(e) =>
+                        setForm({ ...form, message: e.target.value })
+                      }
+                      className="w-full bg-[#FAF9F6] border-none rounded-xl p-4 text-sm focus:ring-1 focus:ring-[#E7646A] focus:outline-none resize-none"
+                      required
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full bg-[#333] text-white py-5 rounded-xl text-xs uppercase tracking-widest hover:bg-black transition-all flex justify-center items-center space-x-2 shadow-lg disabled:opacity-50"
+                  >
+                    {submitting ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <Send className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </form>
+              </>
+            )}
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}
