@@ -35,7 +35,7 @@ export default function Gallery() {
     filter === 'All' ? items : items.filter((item) => item.category === filter);
 
   return (
-    <div className="pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-24 bg-[#FAF9F6] min-h-screen">
+    <div className="pt-8 sm:pt-12 md:pt-16 pb-16 sm:pb-24 bg-[#FAF9F6] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif">

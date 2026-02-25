@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Clock, Send, CheckCircle, Loader2 } from 'lucide-react';
+import { MapPin, Phone, Clock, Send, CheckCircle, Loader2, MessageCircle } from 'lucide-react';
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -54,7 +54,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-24 bg-[#FAF9F6]">
+    <div className="pt-8 sm:pt-12 md:pt-16 pb-16 sm:pb-24 bg-[#FAF9F6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-24">
           <div className="space-y-12">
@@ -76,9 +76,7 @@ export default function Contact() {
                   <h4 className="font-serif text-xl text-[#333]">Location</h4>
                 </div>
                 <p className="text-sm text-gray-500 leading-relaxed pl-8">
-                  123 Luxury Lane, Beverly Hills
-                  <br />
-                  California, 90210
+                  First floor, plot no 44, below Let&apos;s Go Gym, North Extension, Balayya Sastri Layout, Seethammadara, Vrindavan, Visakhapatnam, Andhra Pradesh 530013
                 </p>
               </div>
 
@@ -87,10 +85,12 @@ export default function Contact() {
                   <Phone className="w-5 h-5" />
                   <h4 className="font-serif text-xl text-[#333]">Contact</h4>
                 </div>
-                <p className="text-sm text-gray-500 leading-relaxed pl-8">
-                  +1 (555) 000-LUXE
-                  <br />
-                  concierge@elegance.com
+                <p className="text-sm text-gray-500 leading-relaxed pl-8 space-y-1">
+                  <a href="tel:+919346007152" className="block hover:text-[#E7646A]">+91 9346007152</a>
+                  <a href="https://wa.me/919346007152" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-[#E7646A]">
+                    <MessageCircle className="w-4 h-4" />
+                    WhatsApp: 9346007152
+                  </a>
                 </p>
               </div>
 

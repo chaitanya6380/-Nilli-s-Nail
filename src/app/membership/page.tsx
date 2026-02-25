@@ -6,7 +6,7 @@ import { MEMBERSHIPS } from '@/lib/constants';
 
 export default function Membership() {
   return (
-    <div className="pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-24 min-h-screen bg-[#FAF9F6]">
+    <div className="pt-8 sm:pt-12 md:pt-16 pb-16 sm:pb-24 min-h-screen bg-[#FAF9F6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-20 space-y-4 sm:space-y-6">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif">Nilli&apos;s VIP Club</h1>

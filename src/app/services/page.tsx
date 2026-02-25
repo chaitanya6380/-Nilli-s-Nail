@@ -72,12 +72,10 @@ export default function Services() {
     }, 100);
   };
 
-  const categories = activeTab === 'women' ? womenCategories : [menCategory];
-
   return (
     <div className="min-h-screen bg-[#FAF9F6]">
       {/* Hero */}
-      <section className="relative pt-28 sm:pt-36 pb-12 sm:pb-16 overflow-hidden">
+      <section className="relative pt-8 sm:pt-14 pb-10 sm:pb-14 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#E7646A]/[0.04] via-transparent to-[#E7646A]/[0.02]" />
         <div className="absolute top-16 right-8 w-72 h-72 bg-[#E7646A]/[0.03] rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#E7646A]/[0.02] rounded-full blur-3xl -translate-x-1/2" />
@@ -105,10 +103,11 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Tab Switcher */}
-      <div className="sticky top-16 sm:top-[72px] z-30 bg-[#FAF9F6]/90 backdrop-blur-lg border-b border-gray-100">
+      {/* Unified Sticky Bar: Tabs + Quick Nav */}
+      <div className="sticky top-16 z-30 bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between py-3">
+          {/* Tab row */}
+          <div className="flex items-center justify-between py-2.5">
             <div className="flex gap-1 bg-gray-100 rounded-full p-1">
               <button
                 onClick={() => setActiveTab('women')}
@@ -140,14 +139,10 @@ export default function Services() {
               Book Now
             </Link>
           </div>
-        </div>
-      </div>
 
-      {/* Quick Nav (Women only) */}
-      {activeTab === 'women' && (
-        <div className="bg-white border-b border-gray-100 overflow-hidden">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <div className="flex gap-2 py-3 overflow-x-auto scrollbar-hide">
+          {/* Quick nav (women only) */}
+          {activeTab === 'women' && (
+            <div className="flex gap-2 pb-2.5 overflow-x-auto scrollbar-hide border-t border-gray-50 pt-2">
               {womenCategories.map((cat) => (
                 <button
                   key={cat.id}
@@ -158,12 +153,12 @@ export default function Services() {
                 </button>
               ))}
             </div>
-          </div>
+          )}
         </div>
-      )}
+      </div>
 
       {/* Categories */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -187,7 +182,7 @@ export default function Services() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: Math.min(idx * 0.03, 0.3) }}
-                        className="scroll-mt-36"
+                        className="scroll-mt-40"
                       >
                         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#E7646A] via-[#e8757a] to-[#d4565c] p-6 sm:p-8 text-white">
                           <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-12 translate-x-12" />
@@ -245,7 +240,7 @@ export default function Services() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: Math.min(idx * 0.03, 0.3) }}
-                      className="scroll-mt-36"
+                      className="scroll-mt-40"
                     >
                       <div
                         className={`bg-white rounded-2xl border transition-all duration-300 ${
@@ -268,10 +263,10 @@ export default function Services() {
                             {ICON_MAP[cat.icon || 'sparkles']}
                           </div>
                           <div className="flex-grow min-w-0">
-                            <h2 className="text-base sm:text-lg font-semibold text-[#333]">
+                            <h2 className="text-base sm:text-lg font-semibold text-[#333] leading-tight">
                               {cat.name}
                             </h2>
-                            <p className="text-xs text-gray-400 mt-0.5 truncate">
+                            <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
                               {cat.description}
                             </p>
                           </div>
@@ -392,7 +387,7 @@ export default function Services() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="tel:+919999999999"
+              href="tel:+919346007152"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-gray-200 text-[#333] text-sm font-medium hover:border-gray-300 hover:bg-gray-50 transition-all"
             >
               <Phone className="w-4 h-4" />

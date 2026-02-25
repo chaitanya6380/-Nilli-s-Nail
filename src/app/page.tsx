@@ -60,11 +60,11 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-[#FAF9F6] flex items-center">
+      <section className="relative min-h-[calc(100vh-64px)] bg-[#FAF9F6] flex items-center">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-[#E7646A]/30 z-0 hidden lg:block" />
         <div className="absolute bottom-20 left-10 w-64 h-64 bg-[#EAD8C0]/20 rounded-full blur-3xl z-0" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 pt-20 sm:pt-24 lg:pt-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 pt-8 sm:pt-12 lg:pt-0">
           <div className="lg:col-span-6 space-y-6 sm:space-y-10 relative">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -125,8 +125,8 @@ export default function Home() {
             >
               <div className="relative rounded-t-[80px] sm:rounded-t-[120px] lg:rounded-t-[200px] rounded-b-2xl overflow-hidden border-8 sm:border-[12px] border-white shadow-2xl aspect-[4/5] max-w-[450px] mx-auto lg:ml-auto">
                 <img
-                  src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&q=80&w=1200"
-                  alt="Elegant treatment"
+                  src="/1771999624467-d675flxk3qj.jpeg"
+                  alt="Signature experience at Nilli's Nail & Beauty Lounge"
                   className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-[2s]"
                 />
               </div>
@@ -194,7 +194,7 @@ export default function Home() {
               >
                 <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_25px_80px_-20px_rgba(0,0,0,0.15)] aspect-[4/5] max-h-[640px]">
                   <img
-                    src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800&h=1000"
+                    src="/1772001005149-l7egu8oabg9.jpeg"
                     alt="Luxury facial treatment at Nilli's Nail & Beauty Lounge"
                     className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 hover:scale-[1.02] block"
                   />

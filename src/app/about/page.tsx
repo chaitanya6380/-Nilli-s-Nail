@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <div className="pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-24 bg-white">
+    <div className="pt-8 sm:pt-12 md:pt-16 pb-16 sm:pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-24 items-center mb-16 sm:mb-24 md:mb-32">
           <motion.div
