@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Clock, Send, CheckCircle, Loader2, MessageCircle } from 'lucide-react';
 
+const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/DEn3CzyX6bkHnojdA';
+
 export default function Contact() {
   const [form, setForm] = useState({
     name: '',
@@ -107,12 +109,23 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="h-48 sm:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm grayscale hover:grayscale-0 transition-all duration-700">
-              <img
-                src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=1000"
-                alt="Map View"
-                className="w-full h-full object-cover"
-              />
+            <div className="space-y-3">
+              <div className="h-48 sm:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+                <iframe
+                  title="Nilli's Nail & Beauty Lounge Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.060979534567!2d83.30387051127887!3d17.74176569242847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39452d4d49b06d%3A0x8d8de0fe6f309c8e!2sNili&#39;s%20Nail%20and%20Beauty%20Lounge!5e0!3m2!1sen!2sin!4v1772112808023!5m2!1sen!2sin"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <button
+                type="button"
+                onClick={() => window.open(GOOGLE_MAPS_URL, '_blank', 'noopener,noreferrer')}
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#E7646A] hover:text-[#d4545a] transition-colors"
+              >
+                <span>View larger map in Google Maps</span>
+              </button>
             </div>
           </div>
 
