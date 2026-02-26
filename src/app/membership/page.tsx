@@ -9,9 +9,12 @@ export default function Membership() {
     <div className="pt-8 sm:pt-12 md:pt-16 pb-16 sm:pb-24 min-h-screen bg-[#FAF9F6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-20 space-y-4 sm:space-y-6">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif">Nilli&apos;s VIP Club</h1>
-          <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            Exclusive memberships designed for those who view beauty as a ritual, not a luxury. Enjoy consistent care with privileged access.
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif tracking-[0.25em] uppercase">
+            Nilli&apos;s Membership
+          </h1>
+          <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+            Choose between Silver, Gold and Elite to enjoy more value, complimentary services and referral rewards
+            over multiple months.
           </p>
         </div>
 
@@ -34,10 +37,14 @@ export default function Membership() {
               )}
 
               <div className="mb-8 sm:mb-10 text-center">
-                <h3 className="text-xl sm:text-2xl font-serif mb-4">{tier.name}</h3>
-                <div className="flex items-baseline justify-center space-x-1">
-                  <span className="text-4xl font-serif">{tier.price}</span>
-                  <span className="text-gray-400 text-sm italic">/{tier.period}</span>
+                <h3 className="text-xl sm:text-2xl font-serif mb-3 uppercase tracking-[0.2em]">
+                  {tier.name}
+                </h3>
+                <div className="flex flex-col items-center justify-center space-y-1">
+                  <span className="text-3xl sm:text-4xl font-serif">{tier.price}</span>
+                  <span className="text-[11px] text-gray-400 uppercase tracking-[0.25em]">
+                    Membership Fee
+                  </span>
                 </div>
               </div>
 
@@ -61,12 +68,14 @@ export default function Membership() {
           ))}
         </div>
 
-        <div className="mt-16 sm:mt-24 p-6 sm:p-12 bg-white rounded-2xl sm:rounded-3xl border border-[#EAD8C0] text-center max-w-4xl mx-auto shadow-sm">
-          <h3 className="text-xl sm:text-2xl font-serif mb-4">Corporate &amp; Wedding Packages</h3>
-          <p className="text-gray-500 mb-8">Bespoke group arrangements for your most special occasions. Contact our concierge for a private consultation.</p>
-          <button className="text-[#E7646A] border-b border-[#E7646A] pb-1 uppercase tracking-widest text-xs font-bold hover:text-[#d4545a] hover:border-[#d4545a] transition-colors">
-            Inquire Privately
-          </button>
+        <div className="mt-16 sm:mt-24 p-6 sm:p-12 bg-white rounded-2xl sm:rounded-3xl border border-[#EAD8C0] max-w-4xl mx-auto shadow-sm text-left">
+          <h3 className="text-xl sm:text-2xl font-serif mb-4">Membership Terms &amp; Conditions</h3>
+          <ol className="list-decimal list-inside space-y-2 text-sm text-gray-600">
+            <li>Memberships are transferable and valid only for the mentioned time period.</li>
+            <li>Appointments must be pre-booked.</li>
+            <li>Carrying your membership card for the services is compulsory.</li>
+            <li>Products are not included in the membership.</li>
+          </ol>
         </div>
       </div>
     </div>

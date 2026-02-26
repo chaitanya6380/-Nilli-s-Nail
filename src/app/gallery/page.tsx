@@ -101,7 +101,7 @@ export default function Gallery() {
             &ldquo;Every finish tells a story of transformation.&rdquo;
           </p>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/nilisbeautylounge.vizag?igsh=N2kydW9ieGgxMzd5&utm_source=qr"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-3 text-sm uppercase tracking-widest text-[#E7646A] hover:text-[#d4545a] transition-colors"

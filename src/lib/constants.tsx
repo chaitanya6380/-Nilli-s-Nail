@@ -51,26 +51,41 @@ export const SERVICES: Service[] = [
 export const MEMBERSHIPS: MembershipTier[] = [
   {
     id: 'silver',
-    name: 'Eclat Essence',
-    price: '$99',
+    name: 'Silver',
+    price: '₹15,000',
     period: 'month',
-    benefits: ['1 Signature Service/mo', '10% off Retail', 'Priority Booking'],
+    benefits: [
+      'Validity 3 months',
+      'Total value ₹20,000',
+      'Free services worth ₹5,000',
+      'Referral bonus: ₹500 voucher added',
+    ],
   },
   {
     id: 'gold',
-    name: 'Luxe Privilege',
-    price: '$189',
+    name: 'Gold',
+    price: '₹20,000',
     period: 'month',
-    benefits: ['2 Signature Services/mo', '15% off All Services', 'Complimentary Champagne', 'VIP Events Access'],
+    benefits: [
+      'Validity 4 months',
+      'Total value ₹27,000',
+      'Free services worth ₹7,000',
+      'Referral bonus: ₹1,000 voucher added',
+    ],
     isFeatured: true,
   },
   {
-    id: 'platinum',
-    name: 'Diamond Royale',
-    price: '$2,000',
-    period: 'year',
-    benefits: ['Unlimited Blowouts', 'Monthly Advanced Skin Treatment', 'Home Service Option', 'Gift Concierge'],
-  }
+    id: 'elite',
+    name: 'Elite',
+    price: '₹25,000',
+    period: 'month',
+    benefits: [
+      'Validity 5 months',
+      'Total value ₹34,000',
+      'Free services worth ₹9,000',
+      'Referral bonus: ₹1,500 voucher added',
+    ],
+  },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

@@ -19,7 +19,6 @@ import {
   FlaskConical,
   Wind,
   Heart,
-  User,
   ChevronDown,
   Phone,
 } from 'lucide-react';
@@ -38,11 +37,54 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   flask: <FlaskConical className="w-5 h-5" />,
   wind: <Wind className="w-5 h-5" />,
   heart: <Heart className="w-5 h-5" />,
-  user: <User className="w-5 h-5" />,
 };
 
-const womenCategories = TREATMENT_CATEGORIES.filter((c) => c.id !== 'men-hair');
-const menCategory = TREATMENT_CATEGORIES.find((c) => c.id === 'men-hair')!;
+const WOMEN_ORDER: Record<string, number> = {
+  'hair-cut-women': 1,
+  'hair-colour-women': 2,
+  'hair-treatment-women': 3,
+  'nail-extension': 4,
+  'eyelash-extension': 5,
+  'pedicure-manicure': 6,
+  'facials': 7,
+  'detan': 8,
+  'cleanup': 9,
+  'waxing': 10,
+  'bleach': 11,
+  'threading': 12,
+  'hair-spa-women': 13,
+  'head-massage': 14,
+  'polishing': 15,
+  'premium-treatment': 16,
+  'bridal': 17,
+};
+
+const MEN_ORDER: Record<string, number> = {
+  'men-haircut': 1,
+  'men-hair-colour': 2,
+  'men-hair-treatment': 3,
+  'men-hair-spa': 4,
+  'men-detan': 5,
+  'men-cleanup': 6,
+  'men-bleach': 7,
+  'men-facials': 8,
+  'men-premium': 9,
+  'men-pedicure-manicure': 10,
+  'men-polishing': 11,
+  'men-head-massage': 12,
+};
+
+const sortByOrder = (cats: typeof TREATMENT_CATEGORIES, order: Record<string, number>) =>
+  cats.slice().sort((a, b) => (order[a.id] ?? 999) - (order[b.id] ?? 999));
+
+const womenCategories = sortByOrder(
+  TREATMENT_CATEGORIES.filter((c) => !c.gender || c.gender === 'women'),
+  WOMEN_ORDER,
+);
+const menCategories = sortByOrder(
+  TREATMENT_CATEGORIES.filter((c) => c.gender === 'men'),
+  MEN_ORDER,
+);
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState<'women' | 'men'>('women');
@@ -140,20 +182,22 @@ export default function Services() {
             </Link>
           </div>
 
-          {/* Quick nav (women only) */}
-          {activeTab === 'women' && (
-            <div className="flex gap-2 pb-2.5 overflow-x-auto scrollbar-hide border-t border-gray-50 pt-2">
-              {womenCategories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => scrollToCategory(cat.slug)}
-                  className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium text-gray-500 bg-gray-50 hover:bg-[#E7646A]/10 hover:text-[#E7646A] transition-all whitespace-nowrap"
-                >
-                  {cat.name}
-                </button>
-              ))}
-            </div>
-          )}
+          {/* Quick nav */}
+          <div className="flex gap-2 pb-2.5 overflow-x-auto scrollbar-hide border-t border-gray-50 pt-2">
+            {(activeTab === 'women' ? womenCategories : menCategories).map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => scrollToCategory(cat.slug)}
+                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${
+                  activeTab === 'women'
+                    ? 'text-gray-500 bg-gray-50 hover:bg-[#E7646A]/10 hover:text-[#E7646A]'
+                    : 'text-gray-500 bg-gray-50 hover:bg-[#333]/10 hover:text-[#333]'
+                }`}
+              >
+                {cat.name.replace(/ \(Men\)$| \(Women\)$/, '')}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -225,6 +269,13 @@ export default function Services() {
                                 Book Bridal Consultation
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                               </Link>
+                              <a
+                                href="tel:+919346007152"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/20 text-white text-sm font-semibold hover:bg-white/30 transition-all border border-white/30"
+                              >
+                                <Phone className="w-4 h-4" />
+                                Call Now
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -318,6 +369,15 @@ export default function Services() {
                                       </div>
                                     ))}
                                   </div>
+                                  <div className="mt-4 flex justify-end">
+                                    <a
+                                      href="tel:+919346007152"
+                                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#E7646A] text-white text-xs font-semibold hover:bg-[#d4565c] transition-all shadow-sm shadow-[#E7646A]/20 group"
+                                    >
+                                      <Phone className="w-3.5 h-3.5" />
+                                      Book Now
+                                    </a>
+                                  </div>
                                 </div>
                               </div>
                             </motion.div>
@@ -329,36 +389,103 @@ export default function Services() {
                 })}
               </div>
             ) : (
-              /* Men's Services */
-              <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#333] text-white flex items-center justify-center">
-                    <User className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl font-serif font-semibold text-[#333]">
-                      {menCategory.name}
-                    </h2>
-                    <p className="text-sm text-gray-400">{menCategory.description}</p>
-                  </div>
-                </div>
+              /* Men's Services — same accordion layout as Women */
+              <div className="space-y-4">
+                {menCategories.map((cat, idx) => {
+                  const isExpanded = expandedId === cat.slug;
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {menCategory.items.map((item, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 12 }}
+                  return (
+                    <motion.section
+                      key={cat.id}
+                      id={cat.slug}
+                      ref={(el) => { sectionRefs.current[cat.slug] = el; }}
+                      initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.02 }}
-                      className="flex items-center gap-3 px-5 py-4 rounded-xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all group"
+                      transition={{ delay: Math.min(idx * 0.03, 0.3) }}
+                      className="scroll-mt-40"
                     >
-                      <div className="w-2 h-2 rounded-full bg-[#333]/20 group-hover:bg-[#333] transition-colors flex-shrink-0" />
-                      <span className="text-sm text-[#333] font-medium">
-                        {item.name}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
+                      <div
+                        className={`bg-white rounded-2xl border transition-all duration-300 ${
+                          isExpanded
+                            ? 'border-[#333]/20 shadow-lg shadow-[#333]/[0.06]'
+                            : 'border-gray-100 hover:border-gray-200 hover:shadow-md'
+                        }`}
+                      >
+                        <button
+                          onClick={() => toggleExpand(cat.slug)}
+                          className="w-full flex items-center gap-4 p-5 sm:p-6 text-left"
+                        >
+                          <div
+                            className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
+                              isExpanded
+                                ? 'bg-[#333] text-white'
+                                : 'bg-[#333]/10 text-[#333]'
+                            }`}
+                          >
+                            {ICON_MAP[cat.icon || 'sparkles']}
+                          </div>
+                          <div className="flex-grow min-w-0">
+                            <h2 className="text-base sm:text-lg font-semibold text-[#333] leading-tight">
+                              {cat.name}
+                            </h2>
+                            <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
+                              {cat.description}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-3 flex-shrink-0">
+                            <span className="hidden sm:inline-block text-xs text-gray-400">
+                              {cat.items.length} treatments
+                            </span>
+                            <ChevronDown
+                              className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                                isExpanded ? 'rotate-180' : ''
+                              }`}
+                            />
+                          </div>
+                        </button>
+
+                        <AnimatePresence initial={false}>
+                          {isExpanded && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3, ease: 'easeInOut' }}
+                              className="overflow-hidden"
+                            >
+                              <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                                <div className="border-t border-gray-100 pt-4">
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    {cat.items.map((item, i) => (
+                                      <div
+                                        key={i}
+                                        className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-50/80 hover:bg-[#333]/[0.04] transition-colors group"
+                                      >
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#333]/30 group-hover:bg-[#333] transition-colors flex-shrink-0" />
+                                        <span className="text-sm text-[#333] font-medium">
+                                          {item.name}
+                                        </span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                  <div className="mt-4 flex justify-end">
+                                    <a
+                                      href="tel:+919346007152"
+                                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#333] text-white text-xs font-semibold hover:bg-[#222] transition-all shadow-sm shadow-[#333]/20 group"
+                                    >
+                                      <Phone className="w-3.5 h-3.5" />
+                                      Book Now
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </motion.section>
+                  );
+                })}
               </div>
             )}
           </motion.div>

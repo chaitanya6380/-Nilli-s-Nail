@@ -47,4 +47,5 @@ export interface TreatmentCategory {
   fromPrice: string;
   icon?: string;
   description?: string;
+  gender?: 'women' | 'men';
 }
