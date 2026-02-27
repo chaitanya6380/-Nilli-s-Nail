@@ -126,7 +126,7 @@ export default function Home() {
               <div className="relative rounded-t-[80px] sm:rounded-t-[120px] lg:rounded-t-[200px] rounded-b-2xl overflow-hidden border-8 sm:border-[12px] border-white shadow-2xl aspect-[4/5] max-w-[450px] mx-auto lg:ml-auto">
                 <img
                   src="/1771999624467-d675flxk3qj.jpeg"
-                  alt="Signature experience at Nilli's Nail & Beauty Lounge"
+                  alt="Signature experience at Nili's Nail & Beauty Lounge"
                   className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-[2s]"
                 />
               </div>
@@ -153,7 +153,7 @@ export default function Home() {
                   <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
                   <text className="text-[9px] uppercase tracking-[0.2em] font-bold">
                     <textPath xlinkHref="#circlePath">
-                      NILLI&apos;S NAIL &amp; BEAUTY LOUNGE • ESTABLISHED 2018 •
+                      NILI&apos;S NAIL &amp; BEAUTY LOUNGE • ESTABLISHED 2018 •
                     </textPath>
                   </text>
                 </svg>
@@ -195,7 +195,7 @@ export default function Home() {
                 <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_25px_80px_-20px_rgba(0,0,0,0.15)] aspect-[4/5] max-h-[640px]">
                   <img
                     src="/1772001005149-l7egu8oabg9.jpeg"
-                    alt="Luxury facial treatment at Nilli's Nail & Beauty Lounge"
+                    alt="Luxury facial treatment at Nili's Nail & Beauty Lounge"
                     className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 hover:scale-[1.02] block"
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
@@ -213,7 +213,7 @@ export default function Home() {
                       <Star className="w-6 h-6 text-[#E7646A] fill-[#E7646A]/40" />
                     </div>
                     <div>
-                      <h3 className="font-serif text-xl text-[#333] mb-2 italic">The Nilli&apos;s Promise</h3>
+                      <h3 className="font-serif text-xl text-[#333] mb-2 italic">The Nili&apos;s Promise</h3>
                       <p className="text-sm text-gray-600 leading-relaxed">Only organic, sustainably sourced products touch your skin.</p>
                     </div>
                   </div>

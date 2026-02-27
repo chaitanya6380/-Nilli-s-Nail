@@ -41,7 +41,7 @@ export default function AdminLogin() {
         <div className="text-center mb-8">
           <Sparkles className="w-10 h-10 text-[#E7646A] mx-auto mb-4" />
           <h1 className="text-2xl font-serif text-white tracking-widest">ADMIN PANEL</h1>
-          <p className="text-gray-400 text-sm mt-2">Nilli&apos;s Nail &amp; Beauty Lounge</p>
+          <p className="text-gray-400 text-sm mt-2">Nili&apos;s Nail &amp; Beauty Lounge</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-2xl">

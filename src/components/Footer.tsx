@@ -26,14 +26,14 @@ const Footer = () => {
             <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
               <Image
                 src="/logo.png"
-                alt="Nilli's Nail & Beauty Lounge logo"
+                alt="Nili's Nail & Beauty Lounge logo"
                 fill
                 sizes="64px"
                 className="object-contain"
               />
             </div>
             <h2 className="text-xl sm:text-2xl font-serif tracking-widest">
-              NILLI&apos;S NAIL &amp; BEAUTY
+              NILI&apos;S NAIL &amp; BEAUTY
             </h2>
           </a>
           <p className="text-gray-500 text-sm leading-relaxed">
@@ -116,7 +116,7 @@ const Footer = () => {
 
       <div className="mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-gray-100 text-center px-4">
         <p className="text-xs text-gray-400 uppercase tracking-widest break-words">
-          &copy; 2022 NILLI&apos;S NAIL &amp; BEAUTY LOUNGE. ALL RIGHTS RESERVED.
+          &copy; 2022 NILI&apos;S NAIL &amp; BEAUTY LOUNGE. ALL RIGHTS RESERVED.
         </p>
       </div>
     </footer>

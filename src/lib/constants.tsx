@@ -101,7 +101,7 @@ export const TESTIMONIALS: Testimonial[] = [
     id: 't2',
     name: 'Rahul Verma',
     role: 'Entrepreneur',
-    text: "True luxury is in the details. Nilli's Nail & Beauty Lounge gets everything right, from the soft linen to the expert colorists.",
+    text: "True luxury is in the details. Nili's Nail & Beauty Lounge gets everything right, from the soft linen to the expert colorists.",
     rating: 5,
     image: 'https://picsum.photos/seed/p2/200/200'
   },

@@ -43,7 +43,7 @@ const Navbar = () => {
             <div className="relative w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 rounded-full overflow-hidden">
               <Image
                 src="/Nili's logo.pdf.png"
-                alt="Nilli's Nail & Beauty Lounge logo"
+                alt="Nili's Nail & Beauty Lounge logo"
                 fill
                 sizes="72px"
                 className="object-contain"
@@ -51,7 +51,7 @@ const Navbar = () => {
               />
             </div>
             <span className="text-base sm:text-xl md:text-2xl font-serif tracking-widest text-[#333] truncate">
-              NILLI&apos;S NAIL &amp; BEAUTY
+              NILI&apos;S NAIL &amp; BEAUTY
             </span>
           </Link>
 

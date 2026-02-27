@@ -10,7 +10,7 @@ export default function Membership() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-20 space-y-4 sm:space-y-6">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif tracking-[0.25em] uppercase">
-            Nilli&apos;s Membership
+            Nili&apos;s Membership
           </h1>
           <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
             Choose between Silver, Gold and Elite to enjoy more value, complimentary services and referral rewards

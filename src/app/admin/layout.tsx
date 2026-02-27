@@ -56,7 +56,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <div className="flex items-center gap-3">
               <Sparkles className="w-6 h-6 text-[#E7646A]" />
               <div>
-                <h2 className="text-white font-serif tracking-widest text-sm">NILLI&apos;S</h2>
+                <h2 className="text-white font-serif tracking-widest text-sm">NILI&apos;S</h2>
                 <p className="text-gray-400 text-[10px] uppercase tracking-wider">Admin Panel</p>
               </div>
             </div>

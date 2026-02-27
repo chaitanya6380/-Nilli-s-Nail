@@ -15,7 +15,7 @@ export default function About() {
             <span className="text-[#E7646A] uppercase tracking-widest text-xs font-bold">The Heritage</span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif leading-tight">Crafting Beauty <br /> Since 2018</h1>
             <p className="text-gray-500 leading-relaxed text-lg">
-              Nilli&apos;s Nail &amp; Beauty Lounge was born from a simple observation: that the world of beauty had become too fast, too loud, and too impersonal. We envisioned a sanctuary that returned to the roots of luxury—personalized care, unhurried time, and exceptional artistry.
+              Nili&apos;s Nail &amp; Beauty Lounge was born from a simple observation: that the world of beauty had become too fast, too loud, and too impersonal. We envisioned a sanctuary that returned to the roots of luxury—personalized care, unhurried time, and exceptional artistry.
             </p>
             <p className="text-gray-500 leading-relaxed">
               Founded by Elena Sterling, our salon started as a boutique skin studio in the heart of Beverly Hills. Today, we are a full-service retreat known for our meticulous attention to detail and our commitment to using exclusively organic, high-performance ingredients.
