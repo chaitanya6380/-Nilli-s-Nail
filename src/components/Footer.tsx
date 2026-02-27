@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Instagram, Facebook, MapPin, Phone } from 'lucide-react';
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -21,7 +22,20 @@ const Footer = () => {
     <footer className="bg-[#FAF9F6] border-t border-[#EAD8C0] pt-12 sm:pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-12">
         <div className="space-y-6">
-          <h2 className="text-xl sm:text-2xl font-serif tracking-widest">NILLI&apos;S NAIL &amp; BEAUTY</h2>
+          <a href="/" className="inline-flex items-center space-x-4 group">
+            <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
+              <Image
+                src="/logo.png"
+                alt="Nilli's Nail & Beauty Lounge logo"
+                fill
+                sizes="64px"
+                className="object-contain"
+              />
+            </div>
+            <h2 className="text-xl sm:text-2xl font-serif tracking-widest">
+              NILLI&apos;S NAIL &amp; BEAUTY
+            </h2>
+          </a>
           <p className="text-gray-500 text-sm leading-relaxed">
             Redefining beauty through a lens of luxury and grace. Our sanctuary is dedicated to your well-being.
           </p>
@@ -102,7 +116,7 @@ const Footer = () => {
 
       <div className="mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-gray-100 text-center px-4">
         <p className="text-xs text-gray-400 uppercase tracking-widest break-words">
-          &copy; 2024 NILLI&apos;S NAIL &amp; BEAUTY LOUNGE. ALL RIGHTS RESERVED.
+          &copy; 2022 NILLI&apos;S NAIL &amp; BEAUTY LOUNGE. ALL RIGHTS RESERVED.
         </p>
       </div>
     </footer>

@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const NAVBAR_HEIGHT = 64;
+const NAVBAR_HEIGHT = 72;
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,8 +39,17 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full flex justify-between items-center">
-          <Link href="/" className="flex items-center space-x-2 group min-w-0">
-            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-[#E7646A] transition-transform group-hover:rotate-12 flex-shrink-0" />
+          <Link href="/" className="flex items-center space-x-3 group min-w-0">
+            <div className="relative w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 rounded-full overflow-hidden">
+              <Image
+                src="/Nili's logo.pdf.png"
+                alt="Nilli's Nail & Beauty Lounge logo"
+                fill
+                sizes="72px"
+                className="object-contain"
+                priority
+              />
+            </div>
             <span className="text-base sm:text-xl md:text-2xl font-serif tracking-widest text-[#333] truncate">
               NILLI&apos;S NAIL &amp; BEAUTY
             </span>

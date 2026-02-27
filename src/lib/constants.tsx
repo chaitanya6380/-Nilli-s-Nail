@@ -91,23 +91,23 @@ export const MEMBERSHIPS: MembershipTier[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 't1',
-    name: 'Sophia Laurent',
-    role: 'Fashion Consultant',
+    name: 'Priya Sharma',
+    role: 'IT Professional',
     text: "The most refined atmosphere I've experienced. My skin has never looked better than after their Glow Radiance facial.",
     rating: 5,
     image: 'https://picsum.photos/seed/p1/200/200'
   },
   {
     id: 't2',
-    name: 'Isabella Chen',
-    role: 'Art Director',
+    name: 'Rahul Verma',
+    role: 'Entrepreneur',
     text: "True luxury is in the details. Nilli's Nail & Beauty Lounge gets everything right, from the soft linen to the expert colorists.",
     rating: 5,
     image: 'https://picsum.photos/seed/p2/200/200'
   },
   {
     id: 't3',
-    name: 'Olivia Martinez',
+    name: 'Aisha Khan',
     role: 'Bridal Client',
     text: "From my pre-bridal rituals to the final look, the team made me feel completely taken care of. I’ve never felt more confident on a big day.",
     rating: 5,
