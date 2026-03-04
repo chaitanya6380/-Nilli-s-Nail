@@ -93,14 +93,15 @@ export default function AdminGallery() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-serif text-[#333]">Gallery Management</h1>
+      <div className="flex items-center justify-between gap-4 mb-6">
+        <h1 className="text-xl sm:text-2xl font-serif text-[#333] truncate">Gallery Management</h1>
         <button
           onClick={openAdd}
-          className="flex items-center gap-2 bg-[#E7646A] text-white px-5 py-2.5 rounded-xl text-sm hover:bg-[#d4545a] transition-colors"
+          className="flex items-center gap-2 bg-[#E7646A] text-white px-4 sm:px-5 py-2.5 rounded-xl text-sm hover:bg-[#d4545a] transition-colors flex-shrink-0"
         >
           <Plus className="w-4 h-4" />
-          Add Photo
+          <span className="hidden sm:inline">Add Photo</span>
+          <span className="sm:hidden">Add</span>
         </button>
       </div>
 
@@ -141,7 +142,7 @@ export default function AdminGallery() {
                   alt={item.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent sm:bg-none sm:bg-black/0 sm:group-hover:bg-black/30 transition-all flex items-end sm:items-center justify-center gap-3 p-3 sm:p-0 sm:opacity-0 sm:group-hover:opacity-100">
                   <button
                     onClick={() => openEdit(item)}
                     className="bg-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"

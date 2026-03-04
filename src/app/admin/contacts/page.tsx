@@ -74,8 +74,8 @@ export default function AdminContacts() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-3">
-          <h1 className="text-2xl font-serif text-[#333]">Contact Inquiries</h1>
+        <div className="flex items-center gap-3 min-w-0">
+          <h1 className="text-xl sm:text-2xl font-serif text-[#333] truncate">Contact Inquiries</h1>
           {unreadCount > 0 && (
             <span className="bg-[#E7646A] text-white text-xs px-2.5 py-1 rounded-full font-bold">
               {unreadCount} new

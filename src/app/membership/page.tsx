@@ -18,7 +18,7 @@ export default function Membership() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {MEMBERSHIPS.map((tier, idx) => (
             <motion.div
               key={tier.id}
@@ -26,8 +26,8 @@ export default function Membership() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               className={`relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 border shadow-sm flex flex-col ${
-                tier.isFeatured ? 'border-[#E7646A] md:scale-105 shadow-2xl z-10' : 'border-gray-100'
-              }`}
+                tier.isFeatured ? 'border-[#E7646A] lg:scale-105 shadow-2xl z-10' : 'border-gray-100'
+              } ${idx === 2 ? 'sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto lg:max-w-none' : ''}`}
             >
               {tier.isFeatured && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#E7646A] text-white px-6 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold flex items-center space-x-2">

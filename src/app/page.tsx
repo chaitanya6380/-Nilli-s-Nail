@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[calc(100vh-64px)] bg-[#FAF9F6] flex items-center">
+      <section className="relative min-h-[calc(100vh-72px)] bg-[#FAF9F6] flex items-center">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-[#E7646A]/30 z-0 hidden lg:block" />
         <div className="absolute bottom-20 left-10 w-64 h-64 bg-[#EAD8C0]/20 rounded-full blur-3xl z-0" />
 
@@ -95,7 +95,8 @@ export default function Home() {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="text-gray-500 text-base sm:text-lg md:text-xl max-w-lg leading-relaxed font-light"
               >
-                Step into a sanctuary where clinical precision meets soulful relaxation. Your journey to timeless elegance begins here.
+                From precision hair styling to indulgent facials, nails and bridal looks, every visit at Nili&apos;s
+                is crafted to make you feel pampered, polished and confidently yourself.
               </motion.p>
             </div>
 
@@ -105,7 +106,7 @@ export default function Home() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8 pt-4"
             >
-              <Link href="/contact" className="group relative px-10 py-5 bg-[#333] text-white rounded-full text-xs uppercase tracking-[0.2em] overflow-hidden transition-all hover:pr-14 shadow-2xl w-full sm:w-auto text-center">
+              <Link href="/contact" className="group relative px-8 sm:px-10 py-4 sm:py-5 bg-[#333] text-white rounded-full text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] overflow-hidden transition-all hover:pr-14 shadow-2xl w-full sm:w-auto text-center">
                 <span className="relative z-10">Book Appointment</span>
                 <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all w-4 h-4" />
               </Link>
@@ -123,7 +124,7 @@ export default function Home() {
               transition={{ delay: 0.3, duration: 1.2 }}
               className="relative z-10"
             >
-              <div className="relative rounded-t-[80px] sm:rounded-t-[120px] lg:rounded-t-[200px] rounded-b-2xl overflow-hidden border-8 sm:border-[12px] border-white shadow-2xl aspect-[4/5] max-w-[450px] mx-auto lg:ml-auto">
+              <div className="relative rounded-t-[60px] sm:rounded-t-[120px] lg:rounded-t-[200px] rounded-b-2xl overflow-hidden border-4 sm:border-8 lg:border-[12px] border-white shadow-2xl aspect-[4/5] max-w-[320px] sm:max-w-[400px] lg:max-w-[450px] mx-auto lg:ml-auto">
                 <img
                   src="/1771999624467-d675flxk3qj.jpeg"
                   alt="Signature experience at Nili's Nail & Beauty Lounge"
@@ -168,7 +169,7 @@ export default function Home() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-30 hidden sm:flex"
+          className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center space-y-2 opacity-30"
         >
           <span className="text-[8px] uppercase tracking-[0.4em] font-bold">Scroll</span>
           <div className="w-[1px] h-12 bg-[#333]"></div>
@@ -236,19 +237,21 @@ export default function Home() {
                   </span>
                   <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-[3.25rem] font-serif leading-[1.12] text-[#333] tracking-tight">
                     Graceful Beauty,{' '}
-                    <span className="italic font-light text-[#E7646A]">Scientific Precision</span>.
+                    <span className="italic font-light text-[#E7646A]">Everyday Confidence</span>.
                   </h2>
                 </div>
                 <p className="text-gray-500 text-lg leading-[1.75] max-w-xl">
-                  We believe true beauty is an inside-out journey. Our therapists combine ancient relaxation techniques with cutting-edge skincare technology to provide results that are both visible and deeply restorative.
+                  We believe a salon visit should feel like a reset. From a simple blow‑dry to a full bridal makeover,
+                  our artists focus on healthy hair, glowing skin and polished nails so you leave feeling relaxed,
+                  refreshed and camera‑ready.
                 </p>
 
                 <div className="space-y-5 pt-2">
                   {[
-                    { icon: Sparkles, label: 'Bespoke Skin Analysis', desc: 'Personalized assessment' },
-                    { icon: Palette, label: 'Expert Colorists', desc: 'Artistic precision' },
-                    { icon: Leaf, label: 'Organic Nail Sanctuary', desc: 'Natural care' },
-                    { icon: Flower2, label: 'Aromatherapy Suites', desc: 'Sensory experience' },
+                    { icon: Sparkles, label: 'Hair & Styling Services', desc: 'Cuts, colour and smoothening' },
+                    { icon: Palette, label: 'Skin & Facial Rituals', desc: 'Clean-ups, de-tan and facials' },
+                    { icon: Leaf, label: 'Nail & Hand Care', desc: 'Manicures, pedicures and extensions' },
+                    { icon: Flower2, label: 'Bridal & Occasion Looks', desc: 'Makeup, hair and pre-bridal care' },
                   ].map((item, idx) => (
                     <motion.div
                       key={idx}
@@ -302,7 +305,7 @@ export default function Home() {
               Curated Treatments
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-base sm:text-lg">
-              A quick glance at our most-loved categories — tap any group to see the full price list.
+              A quick glance at our most-loved categories.
             </p>
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#E7646A] to-transparent mx-auto mt-6" />
           </motion.div>
@@ -411,13 +414,13 @@ export default function Home() {
           </motion.div>
 
           {/* Cards Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
             {/* Stats Card */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-1"
+              className="md:col-span-2 lg:col-span-1"
             >
               <div className="h-full bg-[#E7646A] rounded-2xl sm:rounded-3xl px-6 py-7 sm:px-7 sm:py-8 text-white shadow-xl shadow-[#E7646A]/40">
                 <p className="text-xs uppercase tracking-[0.25em] opacity-90 mb-4">
@@ -425,7 +428,7 @@ export default function Home() {
                 </p>
                 <p className="text-4xl sm:text-5xl font-serif mb-2">4,500+</p>
                 <p className="text-xs text-white/80 mb-6 max-w-[13rem]">
-                  Trusted by clients who return to Nilli&apos;s for every important occasion.
+                  Trusted by clients who return to Nili&apos;s for every important occasion.
                 </p>
 
                 <div className="flex items-center gap-3 mb-5">
@@ -475,7 +478,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-3"
+              className="md:col-span-2 lg:col-span-3"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 h-full">
                 {TESTIMONIALS.map((t, idx) => (
@@ -527,7 +530,7 @@ export default function Home() {
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif">Start Your Transformation</h2>
           <p className="text-gray-600 max-w-xl mx-auto">Discover the perfect balance of luxury and well-being. Reserve your personalized experience today.</p>
           <div className="pt-6">
-            <Link href="/contact" className="bg-[#333] text-white px-12 py-5 rounded-full text-sm uppercase tracking-[0.3em] hover:bg-black transition-all shadow-xl">
+            <Link href="/contact" className="bg-[#333] text-white px-8 sm:px-12 py-4 sm:py-5 rounded-full text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:bg-black transition-all shadow-xl inline-block">
               Reserve Now
             </Link>
           </div>

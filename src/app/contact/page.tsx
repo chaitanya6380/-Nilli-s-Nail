@@ -71,7 +71,7 @@ export default function Contact() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 text-[#E7646A]">
                   <MapPin className="w-5 h-5" />
@@ -110,9 +110,9 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <div className="h-48 sm:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <div className="h-52 sm:h-64 md:h-72 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
                 <iframe
-                  title="Nilli's Nail & Beauty Lounge Location"
+                  title="Nili's Nail & Beauty Lounge Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.060979534567!2d83.30387051127887!3d17.74176569242847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39452d4d49b06d%3A0x8d8de0fe6f309c8e!2sNili&#39;s%20Nail%20and%20Beauty%20Lounge!5e0!3m2!1sen!2sin!4v1772112808023!5m2!1sen!2sin"
                   className="w-full h-full border-0"
                   loading="lazy"
@@ -161,7 +161,7 @@ export default function Contact() {
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div className="space-y-2">
                       <label className="text-[10px] uppercase tracking-widest text-gray-400 ml-1">
                         Full Name *

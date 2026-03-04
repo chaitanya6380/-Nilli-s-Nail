@@ -65,7 +65,7 @@ export default function Gallery() {
         ) : (
           <motion.div
             layout
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6"
           >
             <AnimatePresence mode="popLayout">
               {filteredGallery.map((item) => (
@@ -83,10 +83,10 @@ export default function Gallery() {
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-6 text-center">
-                    <Maximize2 className="w-8 h-8 mb-4 stroke-1" />
-                    <h3 className="font-serif text-xl mb-1">{item.title}</h3>
-                    <p className="text-[10px] uppercase tracking-widest text-[#EAD8C0]">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent sm:bg-black/40 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity flex flex-col items-center justify-end sm:justify-center text-white p-3 sm:p-6 text-center">
+                    <Maximize2 className="w-6 h-6 sm:w-8 sm:h-8 mb-2 sm:mb-4 stroke-1 hidden sm:block" />
+                    <h3 className="font-serif text-sm sm:text-xl mb-0.5 sm:mb-1 line-clamp-1">{item.title}</h3>
+                    <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-[#EAD8C0]">
                       {item.category}
                     </p>
                   </div>

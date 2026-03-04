@@ -59,6 +59,23 @@ const WOMEN_ORDER: Record<string, number> = {
   'bridal': 17,
 };
 
+const HAIR_WOMEN_IDS = [
+  'hair-cut-women',
+  'hair-colour-women',
+  'hair-treatment-women',
+  'hair-spa-women',
+  'head-massage',
+];
+
+const FACE_WOMEN_IDS = [
+  'cleanup',
+  'detan',
+  'bleach',
+  'facials',
+  'premium-treatment',
+  'threading',
+];
+
 const MEN_ORDER: Record<string, number> = {
   'men-haircut': 1,
   'men-hair-colour': 2,
@@ -77,14 +94,114 @@ const MEN_ORDER: Record<string, number> = {
 const sortByOrder = (cats: typeof TREATMENT_CATEGORIES, order: Record<string, number>) =>
   cats.slice().sort((a, b) => (order[a.id] ?? 999) - (order[b.id] ?? 999));
 
-const womenCategories = sortByOrder(
+const womenCategoriesAll = sortByOrder(
   TREATMENT_CATEGORIES.filter((c) => !c.gender || c.gender === 'women'),
   WOMEN_ORDER,
 );
-const menCategories = sortByOrder(
+const womenCategories = womenCategoriesAll.filter(
+  (c) => !HAIR_WOMEN_IDS.includes(c.id) && !FACE_WOMEN_IDS.includes(c.id),
+);
+const MEN_HAIR_IDS = ['men-haircut', 'men-hair-colour', 'men-hair-treatment', 'men-hair-spa', 'men-head-massage'];
+const MEN_FACE_IDS = ['men-detan', 'men-cleanup', 'men-bleach', 'men-facials', 'men-premium'];
+
+const menCategoriesAll = sortByOrder(
   TREATMENT_CATEGORIES.filter((c) => c.gender === 'men'),
   MEN_ORDER,
 );
+const menCategories = menCategoriesAll.filter(
+  (c) => !MEN_HAIR_IDS.includes(c.id) && !MEN_FACE_IDS.includes(c.id),
+);
+
+const hairCutWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'hair-cut-women');
+const hairColourWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'hair-colour-women');
+const hairTreatmentWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'hair-treatment-women');
+const hairSpaWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'hair-spa-women');
+const headMassage = TREATMENT_CATEGORIES.find((c) => c.id === 'head-massage');
+
+const cleanupWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'cleanup');
+const detanWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'detan');
+const bleachWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'bleach');
+const facialsWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'facials');
+const premiumWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'premium-treatment');
+const threadingWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'threading');
+
+const HAIR_WOMEN_SECTIONS = [
+  {
+    title: 'Hair Cut',
+    items: hairCutWomen?.items ?? [],
+  },
+  {
+    title: 'Hair Colour',
+    items: hairColourWomen?.items ?? [],
+  },
+  {
+    title: 'Hair Treatments',
+    items: hairTreatmentWomen?.items ?? [],
+  },
+  {
+    title: 'Hair Spa',
+    items: hairSpaWomen?.items ?? [],
+  },
+  {
+    title: 'Head Massage',
+    items: headMassage?.items ?? [],
+  },
+].filter((section) => section.items.length > 0);
+
+const FACE_WOMEN_SECTIONS = [
+  {
+    title: 'Clean Up',
+    items: cleanupWomen?.items ?? [],
+  },
+  {
+    title: 'De-tan',
+    items: detanWomen?.items ?? [],
+  },
+  {
+    title: 'Bleach',
+    items: bleachWomen?.items ?? [],
+  },
+  {
+    title: 'Facials',
+    items: facialsWomen?.items ?? [],
+  },
+  {
+    title: 'Premium Treatments',
+    items: premiumWomen?.items ?? [],
+  },
+  {
+    title: 'Threading',
+    items: threadingWomen?.items ?? [],
+  },
+].filter((section) => section.items.length > 0);
+
+const menHaircut = TREATMENT_CATEGORIES.find((c) => c.id === 'men-haircut');
+const menHairColour = TREATMENT_CATEGORIES.find((c) => c.id === 'men-hair-colour');
+const menHairTreatment = TREATMENT_CATEGORIES.find((c) => c.id === 'men-hair-treatment');
+const menHairSpa = TREATMENT_CATEGORIES.find((c) => c.id === 'men-hair-spa');
+const menHeadMassage = TREATMENT_CATEGORIES.find((c) => c.id === 'men-head-massage');
+
+const MEN_HAIR_SECTIONS = [
+  { title: 'Hair Cut', items: menHaircut?.items ?? [] },
+  { title: 'Hair Colour', items: menHairColour?.items ?? [] },
+  { title: 'Hair Treatments', items: menHairTreatment?.items ?? [] },
+  { title: 'Hair Spa', items: menHairSpa?.items ?? [] },
+  { title: 'Head Massage', items: menHeadMassage?.items ?? [] },
+].filter((section) => section.items.length > 0);
+
+const menDetan = TREATMENT_CATEGORIES.find((c) => c.id === 'men-detan');
+const menCleanup = TREATMENT_CATEGORIES.find((c) => c.id === 'men-cleanup');
+const menBleach = TREATMENT_CATEGORIES.find((c) => c.id === 'men-bleach');
+const menFacials = TREATMENT_CATEGORIES.find((c) => c.id === 'men-facials');
+const menPremium = TREATMENT_CATEGORIES.find((c) => c.id === 'men-premium');
+
+const MEN_FACE_SECTIONS = [
+  { title: 'Clean Up', items: menCleanup?.items ?? [] },
+  { title: 'De-tan', items: menDetan?.items ?? [] },
+  { title: 'Bleach', items: menBleach?.items ?? [] },
+  { title: 'Facials', items: menFacials?.items ?? [] },
+  { title: 'Premium Treatments', items: menPremium?.items ?? [] },
+].filter((section) => section.items.length > 0);
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState<'women' | 'men'>('women');
@@ -146,7 +263,7 @@ export default function Services() {
       </section>
 
       {/* Unified Sticky Bar: Tabs + Quick Nav */}
-      <div className="sticky top-16 z-30 bg-white shadow-sm border-b border-gray-100">
+      <div className="sticky top-[72px] z-30 bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           {/* Tab row */}
           <div className="flex items-center justify-between py-2.5">
@@ -183,20 +300,60 @@ export default function Services() {
           </div>
 
           {/* Quick nav */}
-          <div className="flex gap-2 pb-2.5 overflow-x-auto scrollbar-hide border-t border-gray-50 pt-2">
-            {(activeTab === 'women' ? womenCategories : menCategories).map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => scrollToCategory(cat.slug)}
-                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${
-                  activeTab === 'women'
-                    ? 'text-gray-500 bg-gray-50 hover:bg-[#E7646A]/10 hover:text-[#E7646A]'
-                    : 'text-gray-500 bg-gray-50 hover:bg-[#333]/10 hover:text-[#333]'
-                }`}
-              >
-                {cat.name.replace(/ \(Men\)$| \(Women\)$/, '')}
-              </button>
-            ))}
+          <div className="flex gap-2 pb-2.5 overflow-x-auto scrollbar-hide border-t border-gray-50 pt-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+            {activeTab === 'women' ? (
+              <>
+                <button
+                  key="hair-women"
+                  onClick={() => scrollToCategory('hair-women')}
+                  className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-gray-500 bg-gray-50 hover:bg-[#E7646A]/10 hover:text-[#E7646A]"
+                >
+                  Hair
+                </button>
+                <button
+                  key="face-women"
+                  onClick={() => scrollToCategory('face-women')}
+                  className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-gray-500 bg-gray-50 hover:bg-[#E7646A]/10 hover:text-[#E7646A]"
+                >
+                  Face
+                </button>
+                {womenCategories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => scrollToCategory(cat.slug)}
+                    className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-gray-500 bg-gray-50 hover:bg-[#E7646A]/10 hover:text-[#E7646A]"
+                  >
+                    {cat.name.replace(/ \(Women\)$/, '')}
+                  </button>
+                ))}
+              </>
+            ) : (
+              <>
+                <button
+                  key="hair-men"
+                  onClick={() => scrollToCategory('men-hair-main')}
+                  className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-gray-500 bg-gray-50 hover:bg-[#333]/10 hover:text-[#333]"
+                >
+                  Hair
+                </button>
+                <button
+                  key="face-men"
+                  onClick={() => scrollToCategory('men-face-main')}
+                  className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-gray-500 bg-gray-50 hover:bg-[#333]/10 hover:text-[#333]"
+                >
+                  Face
+                </button>
+                {menCategories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => scrollToCategory(cat.slug)}
+                    className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-gray-500 bg-gray-50 hover:bg-[#333]/10 hover:text-[#333]"
+                  >
+                    {cat.name.replace(/ \(Men\)$/, '')}
+                  </button>
+                ))}
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -213,6 +370,197 @@ export default function Services() {
           >
             {activeTab === 'women' ? (
               <div className="space-y-4">
+                {/* Combined Hair (Women) section */}
+                {HAIR_WOMEN_SECTIONS.length > 0 && (
+                  <motion.section
+                    key="hair-women-main"
+                    id="hair-women"
+                    ref={(el) => {
+                      sectionRefs.current['hair-women'] = el;
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.05 }}
+                    className="scroll-mt-[180px]"
+                  >
+                    <div className="bg-white rounded-2xl border border-[#E7646A]/20 shadow-lg shadow-[#E7646A]/[0.04]">
+                      <button
+                        onClick={() =>
+                          toggleExpand('hair-women')
+                        }
+                        className="w-full flex items-center gap-4 p-5 sm:p-6 text-left"
+                      >
+                        <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#E7646A] text-white">
+                          <Scissors className="w-5 h-5" />
+                        </div>
+                        <div className="flex-grow min-w-0">
+                          <h2 className="text-base sm:text-lg font-semibold text-[#333] leading-tight">
+                            Hair (Women)
+                          </h2>
+                          <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
+                            Cuts, colour, treatments, spa and head massage in one place.
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-3 flex-shrink-0">
+                          <span className="hidden sm:inline-block text-xs text-gray-400">
+                            {HAIR_WOMEN_SECTIONS.reduce(
+                              (total, section) => total + section.items.length,
+                              0,
+                            )}{' '}
+                            treatments
+                          </span>
+                          <ChevronDown
+                            className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                              expandedId === 'hair-women' ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </div>
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {expandedId === 'hair-women' && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                              <div className="border-t border-gray-100 pt-4 space-y-5">
+                                {HAIR_WOMEN_SECTIONS.map((section) => (
+                                  <div key={section.title} className="space-y-2">
+                                    <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">
+                                      {section.title}
+                                    </h3>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                      {section.items.map((item) => (
+                                        <div
+                                          key={item.name}
+                                          className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-50/80 hover:bg-[#E7646A]/[0.04] transition-colors group"
+                                        >
+                                          <div className="w-1.5 h-1.5 rounded-full bg-[#E7646A]/40 group-hover:bg-[#E7646A] transition-colors flex-shrink-0" />
+                                          <span className="text-sm text-[#333] font-medium">
+                                            {item.name}
+                                          </span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                                <div className="mt-4 flex justify-end">
+                                  <a
+                                    href="tel:+919346007152"
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#E7646A] text-white text-xs font-semibold hover:bg-[#d4565c] transition-all shadow-sm shadow-[#E7646A]/20 group"
+                                  >
+                                    <Phone className="w-3.5 h-3.5" />
+                                    Book Now
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.section>
+                )}
+
+                {/* Combined Face (Women) section */}
+                {FACE_WOMEN_SECTIONS.length > 0 && (
+                  <motion.section
+                    key="face-women-main"
+                    id="face-women"
+                    ref={(el) => {
+                      sectionRefs.current['face-women'] = el;
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.08 }}
+                    className="scroll-mt-[180px]"
+                  >
+                    <div className="bg-white rounded-2xl border border-[#E7646A]/10 shadow-md">
+                      <button
+                        onClick={() => toggleExpand('face-women')}
+                        className="w-full flex items-center gap-4 p-5 sm:p-6 text-left"
+                      >
+                        <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#E7646A]/10 text-[#E7646A]">
+                          <Flower2 className="w-5 h-5" />
+                        </div>
+                        <div className="flex-grow min-w-0">
+                          <h2 className="text-base sm:text-lg font-semibold text-[#333] leading-tight">
+                            Face (Women)
+                          </h2>
+                          <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
+                            Clean-ups, de-tan, bleach, facials, premium rituals and threading.
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-3 flex-shrink-0">
+                          <span className="hidden sm:inline-block text-xs text-gray-400">
+                            {FACE_WOMEN_SECTIONS.reduce(
+                              (total, section) => total + section.items.length,
+                              0,
+                            )}{' '}
+                            treatments
+                          </span>
+                          <ChevronDown
+                            className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                              expandedId === 'face-women' ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </div>
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {expandedId === 'face-women' && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                              <div className="border-t border-gray-100 pt-4 space-y-5">
+                                {FACE_WOMEN_SECTIONS.map((section) => (
+                                  <div key={section.title} className="space-y-2">
+                                    <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">
+                                      {section.title}
+                                    </h3>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                      {section.items.map((item) => (
+                                        <div
+                                          key={item.name}
+                                          className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-50/80 hover:bg-[#E7646A]/[0.04] transition-colors group"
+                                        >
+                                          <div className="w-1.5 h-1.5 rounded-full bg-[#E7646A]/40 group-hover:bg-[#E7646A] transition-colors flex-shrink-0" />
+                                          <span className="text-sm text-[#333] font-medium">
+                                            {item.name}
+                                          </span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                                <div className="mt-4 flex justify-end">
+                                  <a
+                                    href="tel:+919346007152"
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#E7646A] text-white text-xs font-semibold hover:bg-[#d4565c] transition-all shadow-sm shadow-[#E7646A]/20 group"
+                                  >
+                                    <Phone className="w-3.5 h-3.5" />
+                                    Book Now
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.section>
+                )}
+
+                {/* Remaining women categories */}
                 {womenCategories.map((cat, idx) => {
                   const isBridal = cat.id === 'bridal';
                   const isExpanded = expandedId === cat.slug;
@@ -222,11 +570,13 @@ export default function Services() {
                       <motion.section
                         key={cat.id}
                         id={cat.slug}
-                        ref={(el) => { sectionRefs.current[cat.slug] = el; }}
+                        ref={(el) => {
+                          sectionRefs.current[cat.slug] = el;
+                        }}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: Math.min(idx * 0.03, 0.3) }}
-                        className="scroll-mt-40"
+                        className="scroll-mt-[180px]"
                       >
                         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#E7646A] via-[#e8757a] to-[#d4565c] p-6 sm:p-8 text-white">
                           <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-12 translate-x-12" />
@@ -287,11 +637,13 @@ export default function Services() {
                     <motion.section
                       key={cat.id}
                       id={cat.slug}
-                      ref={(el) => { sectionRefs.current[cat.slug] = el; }}
+                      ref={(el) => {
+                        sectionRefs.current[cat.slug] = el;
+                      }}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: Math.min(idx * 0.03, 0.3) }}
-                      className="scroll-mt-40"
+                      className="scroll-mt-[180px]"
                     >
                       <div
                         className={`bg-white rounded-2xl border transition-all duration-300 ${
@@ -389,8 +741,196 @@ export default function Services() {
                 })}
               </div>
             ) : (
-              /* Men's Services — same accordion layout as Women */
               <div className="space-y-4">
+                {/* Combined Hair (Men) */}
+                {MEN_HAIR_SECTIONS.length > 0 && (
+                  <motion.section
+                    key="men-hair-main"
+                    id="men-hair-main"
+                    ref={(el) => {
+                      sectionRefs.current['men-hair-main'] = el;
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.05 }}
+                    className="scroll-mt-[180px]"
+                  >
+                    <div className="bg-white rounded-2xl border border-[#333]/20 shadow-lg shadow-[#333]/[0.06]">
+                      <button
+                        onClick={() => toggleExpand('men-hair-main')}
+                        className="w-full flex items-center gap-4 p-5 sm:p-6 text-left"
+                      >
+                        <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#333] text-white">
+                          <Scissors className="w-5 h-5" />
+                        </div>
+                        <div className="flex-grow min-w-0">
+                          <h2 className="text-base sm:text-lg font-semibold text-[#333] leading-tight">
+                            Hair (Men)
+                          </h2>
+                          <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
+                            Haircuts, colour, treatments, spa and head massage together.
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-3 flex-shrink-0">
+                          <span className="hidden sm:inline-block text-xs text-gray-400">
+                            {MEN_HAIR_SECTIONS.reduce(
+                              (total, section) => total + section.items.length,
+                              0,
+                            )}{' '}
+                            services
+                          </span>
+                          <ChevronDown
+                            className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                              expandedId === 'men-hair-main' ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </div>
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {expandedId === 'men-hair-main' && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                              <div className="border-t border-gray-100 pt-4 space-y-5">
+                                {MEN_HAIR_SECTIONS.map((section) => (
+                                  <div key={section.title} className="space-y-2">
+                                    <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">
+                                      {section.title}
+                                    </h3>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                      {section.items.map((item) => (
+                                        <div
+                                          key={item.name}
+                                          className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-50/80 hover:bg-[#333]/[0.04] transition-colors group"
+                                        >
+                                          <div className="w-1.5 h-1.5 rounded-full bg-[#333]/30 group-hover:bg-[#333] transition-colors flex-shrink-0" />
+                                          <span className="text-sm text-[#333] font-medium">
+                                            {item.name}
+                                          </span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                                <div className="mt-4 flex justify-end">
+                                  <a
+                                    href="tel:+919346007152"
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#333] text-white text-xs font-semibold hover:bg-[#222] transition-all shadow-sm shadow-[#333]/20 group"
+                                  >
+                                    <Phone className="w-3.5 h-3.5" />
+                                    Book Now
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.section>
+                )}
+
+                {/* Combined Face (Men) */}
+                {MEN_FACE_SECTIONS.length > 0 && (
+                  <motion.section
+                    key="men-face-main"
+                    id="men-face-main"
+                    ref={(el) => {
+                      sectionRefs.current['men-face-main'] = el;
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.08 }}
+                    className="scroll-mt-[180px]"
+                  >
+                    <div className="bg-white rounded-2xl border border-[#333]/15">
+                      <button
+                        onClick={() => toggleExpand('men-face-main')}
+                        className="w-full flex items-center gap-4 p-5 sm:p-6 text-left"
+                      >
+                        <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#333]/10 text-[#333]">
+                          <Sparkles className="w-5 h-5" />
+                        </div>
+                        <div className="flex-grow min-w-0">
+                          <h2 className="text-base sm:text-lg font-semibold text-[#333] leading-tight">
+                            Face (Men)
+                          </h2>
+                          <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
+                            Clean-ups, de-tan, bleach, facials and premium skin rituals.
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-3 flex-shrink-0">
+                          <span className="hidden sm:inline-block text-xs text-gray-400">
+                            {MEN_FACE_SECTIONS.reduce(
+                              (total, section) => total + section.items.length,
+                              0,
+                            )}{' '}
+                            services
+                          </span>
+                          <ChevronDown
+                            className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                              expandedId === 'men-face-main' ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </div>
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {expandedId === 'men-face-main' && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                              <div className="border-t border-gray-100 pt-4 space-y-5">
+                                {MEN_FACE_SECTIONS.map((section) => (
+                                  <div key={section.title} className="space-y-2">
+                                    <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">
+                                      {section.title}
+                                    </h3>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                      {section.items.map((item) => (
+                                        <div
+                                          key={item.name}
+                                          className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-50/80 hover:bg-[#333]/[0.04] transition-colors group"
+                                        >
+                                          <div className="w-1.5 h-1.5 rounded-full bg-[#333]/30 group-hover:bg-[#333] transition-colors flex-shrink-0" />
+                                          <span className="text-sm text-[#333] font-medium">
+                                            {item.name}
+                                          </span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                                <div className="mt-4 flex justify-end">
+                                  <a
+                                    href="tel:+919346007152"
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#333] text-white text-xs font-semibold hover:bg-[#222] transition-all shadow-sm shadow-[#333]/20 group"
+                                  >
+                                    <Phone className="w-3.5 h-3.5" />
+                                    Book Now
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.section>
+                )}
+
+                {/* Remaining Men's categories */}
                 {menCategories.map((cat, idx) => {
                   const isExpanded = expandedId === cat.slug;
 
@@ -398,11 +938,13 @@ export default function Services() {
                     <motion.section
                       key={cat.id}
                       id={cat.slug}
-                      ref={(el) => { sectionRefs.current[cat.slug] = el; }}
+                      ref={(el) => {
+                        sectionRefs.current[cat.slug] = el;
+                      }}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: Math.min(idx * 0.03, 0.3) }}
-                      className="scroll-mt-40"
+                      className="scroll-mt-[180px]"
                     >
                       <div
                         className={`bg-white rounded-2xl border transition-all duration-300 ${

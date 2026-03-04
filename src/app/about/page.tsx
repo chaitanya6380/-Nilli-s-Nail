@@ -6,19 +6,24 @@ export default function About() {
   return (
     <div className="pt-8 sm:pt-12 md:pt-16 pb-16 sm:pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-24 items-center mb-16 sm:mb-24 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-center mb-16 sm:mb-24 lg:mb-32">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             className="space-y-8"
           >
             <span className="text-[#E7646A] uppercase tracking-widest text-xs font-bold">The Heritage</span>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif leading-tight">Crafting Beauty <br /> Since 2018</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif leading-tight">Crafting Beauty <br /> Since 2022</h1>
             <p className="text-gray-500 leading-relaxed text-lg">
-              Nili&apos;s Nail &amp; Beauty Lounge was born from a simple observation: that the world of beauty had become too fast, too loud, and too impersonal. We envisioned a sanctuary that returned to the roots of luxury—personalized care, unhurried time, and exceptional artistry.
+              Nili&apos;s Nail &amp; Beauty Lounge began with a simple idea in Vizag: a neighbourhood salon where hair,
+              skin and nails are treated with the same care as a luxury spa, but in a warm, friendly space you can call
+              your own.
             </p>
             <p className="text-gray-500 leading-relaxed">
-              Founded by Elena Sterling, our salon started as a boutique skin studio in the heart of Beverly Hills. Today, we are a full-service retreat known for our meticulous attention to detail and our commitment to using exclusively organic, high-performance ingredients.
+              Founded by Nilima Seth &amp; Shabir Ahmad, Nili&apos;s has grown from a small studio into a full-service
+              beauty destination for everyday grooming, special occasions and bridal makeovers. From precision haircuts
+              and colour to advanced facials, nail extensions and head‑to‑toe rituals, every service is designed to make
+              you feel relaxed, confident and beautifully yourself.
             </p>
             <div className="pt-6 grid grid-cols-2 gap-8">
               <div>
@@ -37,11 +42,15 @@ export default function About() {
             className="relative"
           >
             <div className="rounded-2xl overflow-hidden aspect-[4/5] shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=1000" alt="Elena Sterling" className="w-full h-full object-cover" />
+              <img
+                src="/1772001926808-wwo5lhj11ya.jpeg"
+                alt="Founders Nilima Seth &amp; Shabir Ahmad at Nili's Nail &amp; Beauty Lounge"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="absolute -bottom-10 -left-10 bg-[#EAD8C0] p-8 rounded-2xl hidden lg:block">
+            <div className="absolute -bottom-10 -left-10 bg-[#EAD8C0] p-6 sm:p-8 rounded-2xl hidden md:block max-w-[280px] lg:max-w-none">
               <p className="font-serif italic text-xl">&ldquo;Beauty is the illumination of your soul.&rdquo;</p>
-              <p className="text-xs uppercase tracking-widest mt-4 text-gray-600">— Elena Sterling, Founder</p>
+              <p className="text-xs uppercase tracking-widest mt-4 text-gray-600">— Nilima Seth &amp; Shabir Ahmad, Founders</p>
             </div>
           </motion.div>
         </div>

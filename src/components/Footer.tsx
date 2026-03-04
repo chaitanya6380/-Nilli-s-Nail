@@ -20,10 +20,10 @@ const ADDRESS = 'First floor, plot no 44, below Let\'s Go Gym, North Extension, 
 const Footer = () => {
   return (
     <footer className="bg-[#FAF9F6] border-t border-[#EAD8C0] pt-12 sm:pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:[grid-template-columns:2fr_1fr_1fr_1fr] gap-10 sm:gap-12 items-start">
         <div className="space-y-6">
-          <a href="/" className="inline-flex items-center space-x-4 group">
-            <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
+          <a href="/" className="inline-flex items-center space-x-3 sm:space-x-4 group min-w-0">
+            <div className="relative w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
               <Image
                 src="/logo.png"
                 alt="Nili's Nail & Beauty Lounge logo"
@@ -32,7 +32,7 @@ const Footer = () => {
                 className="object-contain"
               />
             </div>
-            <h2 className="text-xl sm:text-2xl font-serif tracking-widest">
+            <h2 className="text-lg sm:text-2xl font-serif tracking-widest truncate">
               NILI&apos;S NAIL &amp; BEAUTY
             </h2>
           </a>

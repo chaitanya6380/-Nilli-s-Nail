@@ -120,14 +120,15 @@ export default function AdminMemberships() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-serif text-[#333]">Membership Management</h1>
+      <div className="flex items-center justify-between gap-4 mb-6">
+        <h1 className="text-xl sm:text-2xl font-serif text-[#333] truncate">Membership Management</h1>
         <button
           onClick={openAdd}
-          className="flex items-center gap-2 bg-[#E7646A] text-white px-5 py-2.5 rounded-xl text-sm hover:bg-[#d4545a] transition-colors"
+          className="flex items-center gap-2 bg-[#E7646A] text-white px-4 sm:px-5 py-2.5 rounded-xl text-sm hover:bg-[#d4545a] transition-colors flex-shrink-0"
         >
           <Plus className="w-4 h-4" />
-          Add Member
+          <span className="hidden sm:inline">Add Member</span>
+          <span className="sm:hidden">Add</span>
         </button>
       </div>
 
